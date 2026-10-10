@@ -6,15 +6,11 @@
 
 <p><strong>Status: minimal repository scaffold; algorithm implementation has not started.</strong></p>
 
+<p><a href="https://docs.google.com/document/d/1w6uCu5viYM8DziHWaoV3GLgr2abjgnJMrIQvF5JjPKA/edit">Team Hub</a> · <a href="https://docs.google.com/spreadsheets/d/1kIy4pi5xVvRvsZ2svOghlOr8vObGK5ZaGIsXHfsiezA/edit#gid=817240001">Live Tasks</a> · <a href="https://docs.google.com/spreadsheets/d/1kIy4pi5xVvRvsZ2svOghlOr8vObGK5ZaGIsXHfsiezA/edit#gid=817240002">Live Checklist</a> · <a href="https://docs.google.com/spreadsheets/d/1kIy4pi5xVvRvsZ2svOghlOr8vObGK5ZaGIsXHfsiezA/edit#gid=817240003">Live Gantt</a></p>
+
+<p><a href="https://github.com/AIALRA-0/EE680-RL-Floorplanning/issues">Issues</a> · <a href="https://github.com/AIALRA-0/EE680-RL-Floorplanning/pulls">Pull Requests</a> · <a href="https://github.com/AIALRA-0/EE680-RL-Floorplanning/projects">Projects</a></p>
+
 </div>
-
-[Team Hub](https://docs.google.com/document/d/1w6uCu5viYM8DziHWaoV3GLgr2abjgnJMrIQvF5JjPKA/edit) · [Live Tasks](https://docs.google.com/spreadsheets/d/1kIy4pi5xVvRvsZ2svOghlOr8vObGK5ZaGIsXHfsiezA/edit#gid=817240001) · [Live Checklist](https://docs.google.com/spreadsheets/d/1kIy4pi5xVvRvsZ2svOghlOr8vObGK5ZaGIsXHfsiezA/edit#gid=817240002) · [Live Gantt](https://docs.google.com/spreadsheets/d/1kIy4pi5xVvRvsZ2svOghlOr8vObGK5ZaGIsXHfsiezA/edit#gid=817240003)
-
-[Issues](https://github.com/AIALRA-0/EE680-RL-Floorplanning/issues) · [Pull requests](https://github.com/AIALRA-0/EE680-RL-Floorplanning/pulls) · [Projects listing](https://github.com/AIALRA-0/EE680-RL-Floorplanning/projects)
-
-The Team Hub is our authoritative shared guide and resource index. Google files
-require team access. The Projects listing is a navigation entry, not a verified
-link to a specific board.
 
 ## 1 Planned project scope
 
@@ -48,6 +44,10 @@ files that must exist during initialization. Add files only when actual work
 requires them and the relevant interfaces have been reviewed.
 
 ## 3 Collaboration and first steps
+
+The Team Hub is our authoritative shared guide and resource index. Google files
+require team access. The Projects listing is a navigation entry, not a verified
+link to a specific board.
 
 - **Lucas:** Python/PyTorch, PPO environment, reward design, training, and analysis.
 - **Alarik:** C++ geometry, SA-SP integration, CPU profiling, and optional CUDA.
