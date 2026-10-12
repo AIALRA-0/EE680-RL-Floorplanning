@@ -1,0 +1,19 @@
+README.md
+  s_7461645a2e0807::t_c16f9dd83f5b17 30-49,54-63
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "2cabe6b7a7a1bd2f3f77fb30a2a6bc8ba41a7325",
+  "prompts": {},
+  "sessions": {
+    "s_7461645a2e0807": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a12423-9fcf-78d3-9a03-6ead7e0cd18d",
+        "model": "gpt-6.1-sol"
+      },
+      "human_author": "AIALRA-0 <aialra@163.com>"
+    }
+  }
+}
