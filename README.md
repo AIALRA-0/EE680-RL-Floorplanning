@@ -27,21 +27,40 @@ dependencies, runnable solver, or algorithm tests.
 
 <div align="center">
 
-Table 2.1. Initial directories; each tracks only a `.gitkeep`
+Table 2.1. Directory scaffold; each listed leaf contains only a `.gitkeep`
 
-| Directory | Intended future responsibility |
-|---|---|
-| `src/` | Python data, environment, PPO, scoring, and experiment code |
-| `cpp/` | C++ geometry/scoring and optional accelerated implementation |
-| `tests/` | Independently verified correctness tests and synthetic fixtures |
-| `docs/` | Agreed architecture, benchmark notes, and reproducibility evidence |
+| Directory | Owner | Planned responsibility |
+|---|---|---|
+| `src/data/` | Lucas | Circuit parsing and data representations |
+| `src/environment/` | Lucas | Reinforcement learning placement environment |
+| `src/ppo/` | Lucas | PPO networks and training |
+| `src/experiments/` | Lucas | Training experiments and analysis |
+| `cpp/geometry/` | Alarik | Placement legality, Area, and HPWL calculations |
+| `cpp/sa_sp/` | Alarik | SA-SP baseline integration |
+| `cpp/cuda/` | Alarik | Optional CUDA acceleration |
+| `integration/bindings/` | Both | Python/C++ interoperability |
+| `integration/evaluation/` | Both | Unified benchmark evaluation and comparison |
+| `integration/visualization/` | Both | Floorplan visualization and comparison |
+| `benchmarks/` | Both | Shared benchmark inputs, subject to permission checks |
+| `tests/fixtures/` | Both | Manually verified test circuits |
+| `tests/python/` | Lucas | Python unit tests |
+| `tests/cpp/` | Alarik | C++ unit tests |
+| `tests/integration/` | Both | Cross-module and end-to-end tests |
+| `docs/` | Both | Interface specifications and technical documentation |
 
 </div>
 
 `README.md` is the project entry point; the existing `.gitignore` is preserved.
-The Team Hub's detailed file tree is a **future architecture**, not a list of
-files that must exist during initialization. Add files only when actual work
-requires them and the relevant interfaces have been reviewed.
+This hierarchy establishes ownership boundaries; the directories contain no
+implementations, tests, datasets, or interface specifications yet. Parent
+directories are tracked through their children. **Algorithm implementations have
+not started**, and CUDA remains optional.
+
+Agree on shared interfaces in `docs/` before adding implementation files. Connect
+the independently developed Python and C++ modules through
+`integration/bindings/`, with shared evaluation, visualization, and integration
+tests. The Team Hub's proposed architecture guides future work; add files only
+when actual work requires them and the relevant interfaces have been reviewed.
 
 ## 3 Collaboration and first steps
 
