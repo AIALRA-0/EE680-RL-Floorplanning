@@ -1,0 +1,1405 @@
+{
+  "description": "Selected actual CPU experiment evidence; gzip files preserve the exact original JSON bytes. Runtime build outputs remain local.",
+  "files": [
+    {
+      "file": "steps/evidence/ppo-5-10-seed0/checkpoint-300.pt",
+      "source": "steps/build/ppo-5-10-seed0/checkpoint-300.pt",
+      "source_sha256": "69903c95588c42f842546285e6eaae5ec3a4c5aaf387b6facac77d19a56793c4",
+      "source_bytes": 158314,
+      "stored_bytes": 158314
+    },
+    {
+      "file": "steps/evidence/ppo-5-10-seed0/checkpoint.pt",
+      "source": "steps/build/ppo-5-10-seed0/checkpoint.pt",
+      "source_sha256": "69903c95588c42f842546285e6eaae5ec3a4c5aaf387b6facac77d19a56793c4",
+      "source_bytes": 158314,
+      "stored_bytes": 158314
+    },
+    {
+      "file": "steps/evidence/ppo-5-10-seed0/evaluation.json",
+      "source": "steps/build/ppo-5-10-seed0/evaluation.json",
+      "source_sha256": "70217a2e68565bf26f12209ed4c684a8ed08262e784765ac8fecedac3a702cf8",
+      "source_bytes": 1093,
+      "stored_bytes": 1093
+    },
+    {
+      "file": "steps/evidence/ppo-5-10-seed0/initial-evaluation.json",
+      "source": "steps/build/ppo-5-10-seed0/initial-evaluation.json",
+      "source_sha256": "e3e5a2109cb8fc286a1b0a5ccba242482e7b689dd240d0feb260b9241c57751a",
+      "source_bytes": 1060,
+      "stored_bytes": 1060
+    },
+    {
+      "file": "steps/evidence/ppo-5-10-seed0/progress.json",
+      "source": "steps/build/ppo-5-10-seed0/progress.json",
+      "source_sha256": "18edad665665f5b33894b52878b0f18cb9349cedba507a0d97b1a870a8bd095e",
+      "source_bytes": 123473,
+      "stored_bytes": 123473
+    },
+    {
+      "file": "steps/evidence/ppo-5-10-seed0/replay-0-update-300.json.gz",
+      "source": "steps/build/ppo-5-10-seed0/replay-0-update-300.json",
+      "source_sha256": "29e582257ed79775afa6c96eb254adcb736a7654f76d2a6749e32844598f3b97",
+      "source_bytes": 414529,
+      "stored_bytes": 103665
+    },
+    {
+      "file": "steps/evidence/ppo-5-10-seed0/replay-0.json.gz",
+      "source": "steps/build/ppo-5-10-seed0/replay-0.json",
+      "source_sha256": "29e582257ed79775afa6c96eb254adcb736a7654f76d2a6749e32844598f3b97",
+      "source_bytes": 414529,
+      "stored_bytes": 103665
+    },
+    {
+      "file": "steps/evidence/ppo-5-10-seed0/replay-1-update-300.json.gz",
+      "source": "steps/build/ppo-5-10-seed0/replay-1-update-300.json",
+      "source_sha256": "0a86d4f321986f0c6e41bd92d0adf76a87c35f4120fcd1c98ad63d6262e57904",
+      "source_bytes": 757443,
+      "stored_bytes": 159669
+    },
+    {
+      "file": "steps/evidence/ppo-5-10-seed0/replay-1.json.gz",
+      "source": "steps/build/ppo-5-10-seed0/replay-1.json",
+      "source_sha256": "0a86d4f321986f0c6e41bd92d0adf76a87c35f4120fcd1c98ad63d6262e57904",
+      "source_bytes": 757443,
+      "stored_bytes": 159669
+    },
+    {
+      "file": "steps/evidence/ppo-5-10-seed0/rollout.json",
+      "source": "steps/build/ppo-5-10-seed0/rollout.json",
+      "source_sha256": "c88290eb5704811e6cb15ad9d5e02e47191b89833c3c5547fd2283983cbafa3c",
+      "source_bytes": 33035,
+      "stored_bytes": 33035
+    },
+    {
+      "file": "steps/evidence/ppo-5-10-seed0/teaching-update-300.json.gz",
+      "source": "steps/build/ppo-5-10-seed0/teaching-update-300.json",
+      "source_sha256": "a7027961f2790d4aa6a8e580b9efc0b152c5c7e25849d525ee2f8278ecec28c5",
+      "source_bytes": 209506,
+      "stored_bytes": 53771
+    },
+    {
+      "file": "steps/evidence/ppo-5-10-seed0/teaching-update-300.pt",
+      "source": "steps/build/ppo-5-10-seed0/teaching-update-300.pt",
+      "source_sha256": "f645f11e02f0f59a366bc350fbbdba0734f722950dd4fe7b06e02c8df2a9f275",
+      "source_bytes": 159027,
+      "stored_bytes": 159027
+    },
+    {
+      "file": "steps/evidence/ppo-5-10-seed0/teaching.json.gz",
+      "source": "steps/build/ppo-5-10-seed0/teaching.json",
+      "source_sha256": "a7027961f2790d4aa6a8e580b9efc0b152c5c7e25849d525ee2f8278ecec28c5",
+      "source_bytes": 209506,
+      "stored_bytes": 53771
+    },
+    {
+      "file": "steps/evidence/ppo-5-10-seed0/teaching.pt",
+      "source": "steps/build/ppo-5-10-seed0/teaching.pt",
+      "source_sha256": "5cf53a899205727c605cbb5d144125d6c2ed9e565ffcc67099b7dc4881afc174",
+      "source_bytes": 158248,
+      "stored_bytes": 158248
+    },
+    {
+      "file": "steps/evidence/ppo-5-10-seed0/unseen-100.json",
+      "source": "steps/build/ppo-5-10-seed0/unseen-100.json",
+      "source_sha256": "dcb2c87d51ae953c0c6a484375f46946718ed04b748c7009909e85ba5882f3c1",
+      "source_bytes": 9731,
+      "stored_bytes": 9731
+    },
+    {
+      "file": "steps/evidence/ppo-5-10-seed0/unseen-20-board96.json",
+      "source": "steps/build/ppo-5-10-seed0/unseen-20-board96.json",
+      "source_sha256": "38d8c317dc4fdd10b0b7435ba7b108759144d5fc224b0f78f964da9df91a2d38",
+      "source_bytes": 2267,
+      "stored_bytes": 2267
+    },
+    {
+      "file": "steps/evidence/ppo-5-10-seed0/unseen-20.json",
+      "source": "steps/build/ppo-5-10-seed0/unseen-20.json",
+      "source_sha256": "793e1138dde848ba2ed253eb90f839919c1628df44409240022757a326bebf78",
+      "source_bytes": 2150,
+      "stored_bytes": 2150
+    },
+    {
+      "file": "steps/evidence/ppo-5-10-seed0/unseen-50-board176.json",
+      "source": "steps/build/ppo-5-10-seed0/unseen-50-board176.json",
+      "source_sha256": "e909b6b7a5c37c205796298bfb42365c2fedf80dd393ebe050997f435694ebf4",
+      "source_bytes": 4962,
+      "stored_bytes": 4962
+    },
+    {
+      "file": "steps/evidence/ppo-5-10-seed0/unseen-50.json",
+      "source": "steps/build/ppo-5-10-seed0/unseen-50.json",
+      "source_sha256": "d65d01f2f6d316eba4cc36319b525696ac22b6c2fd59521502d2faa659a61b5c",
+      "source_bytes": 4559,
+      "stored_bytes": 4559
+    },
+    {
+      "file": "steps/evidence/ppo-5-10-seed0/figures/ablation-curves.png",
+      "source": "steps/build/ppo-5-10-seed0/figures/ablation-curves.png",
+      "source_sha256": "0ea90cadfd4dd1608b4f8c1489b51f6672ea95af3ef565c59f56e6bba5de087c",
+      "source_bytes": 388327,
+      "stored_bytes": 388327
+    },
+    {
+      "file": "steps/evidence/ppo-5-10-seed0/figures/ppo-floorplans.png",
+      "source": "steps/build/ppo-5-10-seed0/figures/ppo-floorplans.png",
+      "source_sha256": "85ec6d4cd7551ac2bd00fa0351e2df4bdf45659ea86b287e44f5be799f1c01f2",
+      "source_bytes": 122967,
+      "stored_bytes": 122967
+    },
+    {
+      "file": "steps/evidence/ppo-5-10-seed0/figures/training-curve.png",
+      "source": "steps/build/ppo-5-10-seed0/figures/training-curve.png",
+      "source_sha256": "b8512baf835464548c15618370ba0579179e463842a0f37512199b4e0fcae9a1",
+      "source_bytes": 110916,
+      "stored_bytes": 110916
+    },
+    {
+      "file": "steps/evidence/ppo-scale-20261019/case-0-macros-20/checkpoint-0.pt",
+      "source": "steps/build/ppo-scale-20261019/case-0-macros-20/checkpoint-0.pt",
+      "source_sha256": "23a3f383e101f9f2b6c281131160cd4fe20c357b60743cc98a5a5c046b485760",
+      "source_bytes": 39658,
+      "stored_bytes": 39658
+    },
+    {
+      "file": "steps/evidence/ppo-scale-20261019/case-0-macros-20/checkpoint-100.pt",
+      "source": "steps/build/ppo-scale-20261019/case-0-macros-20/checkpoint-100.pt",
+      "source_sha256": "931ed48de531cc5bb883f73ff4161b380e2507e4bc6085b58c5068ba561d9d8c",
+      "source_bytes": 160622,
+      "stored_bytes": 160622
+    },
+    {
+      "file": "steps/evidence/ppo-scale-20261019/case-0-macros-20/checkpoint-25.pt",
+      "source": "steps/build/ppo-scale-20261019/case-0-macros-20/checkpoint-25.pt",
+      "source_sha256": "bbe1b5a0192dfd38e4110fc79fbc70520996de2d64606ad1fb3d3d56078e3441",
+      "source_bytes": 121389,
+      "stored_bytes": 121389
+    },
+    {
+      "file": "steps/evidence/ppo-scale-20261019/case-0-macros-20/checkpoint-50.pt",
+      "source": "steps/build/ppo-scale-20261019/case-0-macros-20/checkpoint-50.pt",
+      "source_sha256": "567dcb60de4319100b6b40481932e04aa2db3758aea7ef1012f1a1ee5374ac4a",
+      "source_bytes": 134445,
+      "stored_bytes": 134445
+    },
+    {
+      "file": "steps/evidence/ppo-scale-20261019/case-0-macros-20/checkpoint-75.pt",
+      "source": "steps/build/ppo-scale-20261019/case-0-macros-20/checkpoint-75.pt",
+      "source_sha256": "00d456f5248579d320ae80282fcf2d6538e70eaa303f29e4cc7bfd1604a82f67",
+      "source_bytes": 147437,
+      "stored_bytes": 147437
+    },
+    {
+      "file": "steps/evidence/ppo-scale-20261019/case-0-macros-20/checkpoint.pt",
+      "source": "steps/build/ppo-scale-20261019/case-0-macros-20/checkpoint.pt",
+      "source_sha256": "67ff1837d8b2322d8b28488724dd3d66eaa87d6b9be668d609e279a73fb7a258",
+      "source_bytes": 160298,
+      "stored_bytes": 160298
+    },
+    {
+      "file": "steps/evidence/ppo-scale-20261019/case-0-macros-20/evaluation.json",
+      "source": "steps/build/ppo-scale-20261019/case-0-macros-20/evaluation.json",
+      "source_sha256": "ccd478ecb9324ebebdd39c903bac1b43ab42bdc4e02c8a8ec0452ef75303f2e3",
+      "source_bytes": 623,
+      "stored_bytes": 623
+    },
+    {
+      "file": "steps/evidence/ppo-scale-20261019/case-0-macros-20/initial-evaluation.json",
+      "source": "steps/build/ppo-scale-20261019/case-0-macros-20/initial-evaluation.json",
+      "source_sha256": "adbdff8f3d6164746b84f99791472781ad3fa264d825790cf0ee33cdaf6bc924",
+      "source_bytes": 605,
+      "stored_bytes": 605
+    },
+    {
+      "file": "steps/evidence/ppo-scale-20261019/case-0-macros-20/progress.json",
+      "source": "steps/build/ppo-scale-20261019/case-0-macros-20/progress.json",
+      "source_sha256": "80658e854cab339431363fd00b44b4abe47f969716b82ad54cc6262c538210f8",
+      "source_bytes": 125855,
+      "stored_bytes": 125855
+    },
+    {
+      "file": "steps/evidence/ppo-scale-20261019/case-0-macros-20/replay-0-update-0.json.gz",
+      "source": "steps/build/ppo-scale-20261019/case-0-macros-20/replay-0-update-0.json",
+      "source_sha256": "91489c0442c6eac74efd3dc40e60e8e50055f8f898220d93253c29145f1945f9",
+      "source_bytes": 3646417,
+      "stored_bytes": 835653
+    },
+    {
+      "file": "steps/evidence/ppo-scale-20261019/case-0-macros-20/replay-0-update-100.json.gz",
+      "source": "steps/build/ppo-scale-20261019/case-0-macros-20/replay-0-update-100.json",
+      "source_sha256": "e1c511137000113dae3d0106660676ed5dd7e93afa021898743f0ed7c333db84",
+      "source_bytes": 3553868,
+      "stored_bytes": 779567
+    },
+    {
+      "file": "steps/evidence/ppo-scale-20261019/case-0-macros-20/replay-0-update-25.json.gz",
+      "source": "steps/build/ppo-scale-20261019/case-0-macros-20/replay-0-update-25.json",
+      "source_sha256": "eca556ce6f2ad4fecd378b2cdecfc6e090603280207786eb5c2645bc1336763c",
+      "source_bytes": 3642215,
+      "stored_bytes": 833047
+    },
+    {
+      "file": "steps/evidence/ppo-scale-20261019/case-0-macros-20/replay-0-update-50.json.gz",
+      "source": "steps/build/ppo-scale-20261019/case-0-macros-20/replay-0-update-50.json",
+      "source_sha256": "ef91d06a3a7e6488655c76415525431e24a29b5905c98d08d943da78b6ce13de",
+      "source_bytes": 3622865,
+      "stored_bytes": 819108
+    },
+    {
+      "file": "steps/evidence/ppo-scale-20261019/case-0-macros-20/replay-0-update-75.json.gz",
+      "source": "steps/build/ppo-scale-20261019/case-0-macros-20/replay-0-update-75.json",
+      "source_sha256": "1a19f49c3e8010b2acf89db151b686adfaca45837054113a3fa0ab78b9cef3e3",
+      "source_bytes": 3594723,
+      "stored_bytes": 805024
+    },
+    {
+      "file": "steps/evidence/ppo-scale-20261019/case-0-macros-20/replay-0.json.gz",
+      "source": "steps/build/ppo-scale-20261019/case-0-macros-20/replay-0.json",
+      "source_sha256": "e1c511137000113dae3d0106660676ed5dd7e93afa021898743f0ed7c333db84",
+      "source_bytes": 3553868,
+      "stored_bytes": 779567
+    },
+    {
+      "file": "steps/evidence/ppo-scale-20261019/case-0-macros-20/rollout-update-100.json.gz",
+      "source": "steps/build/ppo-scale-20261019/case-0-macros-20/rollout-update-100.json",
+      "source_sha256": "3274e1003b1213da899fcc7899c472d712ecf93941ade522c300122cf20151ff",
+      "source_bytes": 296904,
+      "stored_bytes": 14924
+    },
+    {
+      "file": "steps/evidence/ppo-scale-20261019/case-0-macros-20/rollout-update-25.json.gz",
+      "source": "steps/build/ppo-scale-20261019/case-0-macros-20/rollout-update-25.json",
+      "source_sha256": "f471c30023c333013acb52752b5cbccd72e83daefa3ac94642151972e0b2ef23",
+      "source_bytes": 293620,
+      "stored_bytes": 14923
+    },
+    {
+      "file": "steps/evidence/ppo-scale-20261019/case-0-macros-20/rollout-update-50.json.gz",
+      "source": "steps/build/ppo-scale-20261019/case-0-macros-20/rollout-update-50.json",
+      "source_sha256": "725efbbec1ca2768fe8af3bbd7eec0ec545e2aa262b30763f316725a58285828",
+      "source_bytes": 293754,
+      "stored_bytes": 15036
+    },
+    {
+      "file": "steps/evidence/ppo-scale-20261019/case-0-macros-20/rollout-update-75.json.gz",
+      "source": "steps/build/ppo-scale-20261019/case-0-macros-20/rollout-update-75.json",
+      "source_sha256": "ce254733d8178b12d41d7d5339753e5acc81a0321bfae1cce4bb0b009124076c",
+      "source_bytes": 293461,
+      "stored_bytes": 14867
+    },
+    {
+      "file": "steps/evidence/ppo-scale-20261019/case-0-macros-20/rollout.json.gz",
+      "source": "steps/build/ppo-scale-20261019/case-0-macros-20/rollout.json",
+      "source_sha256": "3274e1003b1213da899fcc7899c472d712ecf93941ade522c300122cf20151ff",
+      "source_bytes": 296904,
+      "stored_bytes": 14924
+    },
+    {
+      "file": "steps/evidence/ppo-scale-20261019/case-0-macros-20/samples-0-update-0.json",
+      "source": "steps/build/ppo-scale-20261019/case-0-macros-20/samples-0-update-0.json",
+      "source_sha256": "de83033545de59b0344f61f2a4f36d666be6121f4052a89aeb071eddfe857984",
+      "source_bytes": 10322,
+      "stored_bytes": 10322
+    },
+    {
+      "file": "steps/evidence/ppo-scale-20261019/case-0-macros-20/samples-0-update-100.json",
+      "source": "steps/build/ppo-scale-20261019/case-0-macros-20/samples-0-update-100.json",
+      "source_sha256": "7ad9b9e1a7414c1a36edcca22e0d8bfb1bea32bf720c94442695837ff6c55a5f",
+      "source_bytes": 10342,
+      "stored_bytes": 10342
+    },
+    {
+      "file": "steps/evidence/ppo-scale-20261019/case-0-macros-20/samples-0-update-25.json",
+      "source": "steps/build/ppo-scale-20261019/case-0-macros-20/samples-0-update-25.json",
+      "source_sha256": "5b7b46cf624ac3c0dff761b45b9dc0022b425c1c05ffc5b1a221df582aaf8d38",
+      "source_bytes": 10324,
+      "stored_bytes": 10324
+    },
+    {
+      "file": "steps/evidence/ppo-scale-20261019/case-0-macros-20/samples-0-update-50.json",
+      "source": "steps/build/ppo-scale-20261019/case-0-macros-20/samples-0-update-50.json",
+      "source_sha256": "0a2aeb888f5f055167fab4e26501916dd9c855a9520ff5b4533c010439fc6a43",
+      "source_bytes": 10329,
+      "stored_bytes": 10329
+    },
+    {
+      "file": "steps/evidence/ppo-scale-20261019/case-0-macros-20/samples-0-update-75.json",
+      "source": "steps/build/ppo-scale-20261019/case-0-macros-20/samples-0-update-75.json",
+      "source_sha256": "17a6c6ad4d7f9c041d2c31639078f318b7eba2cdad146791281ae2006c1ea071",
+      "source_bytes": 10330,
+      "stored_bytes": 10330
+    },
+    {
+      "file": "steps/evidence/ppo-scale-20261019/case-0-macros-20/study-after-evaluation.json",
+      "source": "steps/build/ppo-scale-20261019/case-0-macros-20/study-after-evaluation.json",
+      "source_sha256": "bd9eff936eaeead5c3bc87b64178337b497eb3984e5274c63080a10552925c63",
+      "source_bytes": 263,
+      "stored_bytes": 263
+    },
+    {
+      "file": "steps/evidence/ppo-scale-20261019/case-0-macros-20/study-after-samples-0.json",
+      "source": "steps/build/ppo-scale-20261019/case-0-macros-20/study-after-samples-0.json",
+      "source_sha256": "8ad0e316eb15a07779f6a9032ac83cc1796ba29a28a4a490aa534f0da357ce82",
+      "source_bytes": 41360,
+      "stored_bytes": 41360
+    },
+    {
+      "file": "steps/evidence/ppo-scale-20261019/case-0-macros-20/study-before-evaluation.json",
+      "source": "steps/build/ppo-scale-20261019/case-0-macros-20/study-before-evaluation.json",
+      "source_sha256": "7d3883e836fb21858f286a69c8dbd2a7f3d4cf9ad5e83e64e49630348a0ebf20",
+      "source_bytes": 262,
+      "stored_bytes": 262
+    },
+    {
+      "file": "steps/evidence/ppo-scale-20261019/case-0-macros-20/study-before-samples-0.json",
+      "source": "steps/build/ppo-scale-20261019/case-0-macros-20/study-before-samples-0.json",
+      "source_sha256": "3c761a72f2affaa2dda2d9d6dc99f02b68b0e322ce9326a36440ad49dd39f996",
+      "source_bytes": 41388,
+      "stored_bytes": 41388
+    },
+    {
+      "file": "steps/evidence/ppo-scale-20261019/case-0-macros-20/study.json",
+      "source": "steps/build/ppo-scale-20261019/case-0-macros-20/study.json",
+      "source_sha256": "1bded5fc8b96825ede410c43d15978176bdd83461a39ac48770d6aed78e91173",
+      "source_bytes": 548,
+      "stored_bytes": 548
+    },
+    {
+      "file": "steps/evidence/ppo-scale-20261019/case-0-macros-20/teaching-update-0.json.gz",
+      "source": "steps/build/ppo-scale-20261019/case-0-macros-20/teaching-update-0.json",
+      "source_sha256": "42b398eb3f40ae484677b07e1b0530f3af530f4c5608e368cde566237e586054",
+      "source_bytes": 613054,
+      "stored_bytes": 149116
+    },
+    {
+      "file": "steps/evidence/ppo-scale-20261019/case-0-macros-20/teaching-update-0.pt",
+      "source": "steps/build/ppo-scale-20261019/case-0-macros-20/teaching-update-0.pt",
+      "source_sha256": "09cea95bba8d8bec0901f88035db7a692f97d9a12acd42d6d93e2249742e86b0",
+      "source_bytes": 108081,
+      "stored_bytes": 108081
+    },
+    {
+      "file": "steps/evidence/ppo-scale-20261019/case-0-macros-20/teaching-update-100.json.gz",
+      "source": "steps/build/ppo-scale-20261019/case-0-macros-20/teaching-update-100.json",
+      "source_sha256": "4d8d74e642d115ae57f14c9e8efd41c31d538bbd2b3814ccb49b7362c043902b",
+      "source_bytes": 613113,
+      "stored_bytes": 147401
+    },
+    {
+      "file": "steps/evidence/ppo-scale-20261019/case-0-macros-20/teaching-update-100.pt",
+      "source": "steps/build/ppo-scale-20261019/case-0-macros-20/teaching-update-100.pt",
+      "source_sha256": "f3baf3db8355ec74790afd55909098ffb3d329a684864b27a44d270e0b44f440",
+      "source_bytes": 161011,
+      "stored_bytes": 161011
+    },
+    {
+      "file": "steps/evidence/ppo-scale-20261019/case-0-macros-20/teaching-update-25.json.gz",
+      "source": "steps/build/ppo-scale-20261019/case-0-macros-20/teaching-update-25.json",
+      "source_sha256": "e130aeb6a8a10ffa08272704de3b7bb7bed5b0485cfad78101896ea7b31bb1fe",
+      "source_bytes": 613726,
+      "stored_bytes": 149008
+    },
+    {
+      "file": "steps/evidence/ppo-scale-20261019/case-0-macros-20/teaching-update-25.pt",
+      "source": "steps/build/ppo-scale-20261019/case-0-macros-20/teaching-update-25.pt",
+      "source_sha256": "b1b32727a6bb5a650ee83c0b83366becaca6a6867e0caa42cf3a15ac8b25746a",
+      "source_bytes": 121842,
+      "stored_bytes": 121842
+    },
+    {
+      "file": "steps/evidence/ppo-scale-20261019/case-0-macros-20/teaching-update-50.json.gz",
+      "source": "steps/build/ppo-scale-20261019/case-0-macros-20/teaching-update-50.json",
+      "source_sha256": "d5458de71d15ff672bf36ed908c652888730443442f6c4ded750b074c4fd5ac2",
+      "source_bytes": 613013,
+      "stored_bytes": 148476
+    },
+    {
+      "file": "steps/evidence/ppo-scale-20261019/case-0-macros-20/teaching-update-50.pt",
+      "source": "steps/build/ppo-scale-20261019/case-0-macros-20/teaching-update-50.pt",
+      "source_sha256": "bd09b1ed64bd5c1b6baf1e39ec27c78673e083f44caead463446773a8c7166fb",
+      "source_bytes": 134898,
+      "stored_bytes": 134898
+    },
+    {
+      "file": "steps/evidence/ppo-scale-20261019/case-0-macros-20/teaching-update-75.json.gz",
+      "source": "steps/build/ppo-scale-20261019/case-0-macros-20/teaching-update-75.json",
+      "source_sha256": "539fcb526d81b869b862452921532fbf59ac0b4e4f7bd59906bd3f2e912429a4",
+      "source_bytes": 612998,
+      "stored_bytes": 148332
+    },
+    {
+      "file": "steps/evidence/ppo-scale-20261019/case-0-macros-20/teaching-update-75.pt",
+      "source": "steps/build/ppo-scale-20261019/case-0-macros-20/teaching-update-75.pt",
+      "source_sha256": "60cd53b0fd74a3417fda2ec0e9741eaf61bd64676025132970ce8d68bca49724",
+      "source_bytes": 147954,
+      "stored_bytes": 147954
+    },
+    {
+      "file": "steps/evidence/ppo-scale-20261019/case-0-macros-20/teaching.json.gz",
+      "source": "steps/build/ppo-scale-20261019/case-0-macros-20/teaching.json",
+      "source_sha256": "4d8d74e642d115ae57f14c9e8efd41c31d538bbd2b3814ccb49b7362c043902b",
+      "source_bytes": 613113,
+      "stored_bytes": 147401
+    },
+    {
+      "file": "steps/evidence/ppo-scale-20261019/case-0-macros-20/teaching.pt",
+      "source": "steps/build/ppo-scale-20261019/case-0-macros-20/teaching.pt",
+      "source_sha256": "f3baf3db8355ec74790afd55909098ffb3d329a684864b27a44d270e0b44f440",
+      "source_bytes": 161011,
+      "stored_bytes": 161011
+    },
+    {
+      "file": "steps/evidence/ppo-scale-20261019/case-0-macros-20/figures/ppo-floorplans.png",
+      "source": "steps/build/ppo-scale-20261019/case-0-macros-20/figures/ppo-floorplans.png",
+      "source_sha256": "d8e074af1236ffabb9d600c1fc74663051d83b25226e02424d3beeb121e41f0b",
+      "source_bytes": 165156,
+      "stored_bytes": 165156
+    },
+    {
+      "file": "steps/evidence/ppo-scale-20261019/case-0-macros-20/figures/training-curve.png",
+      "source": "steps/build/ppo-scale-20261019/case-0-macros-20/figures/training-curve.png",
+      "source_sha256": "2371bd71e45301e1b4f36c303099732ee542251fa8ea566a4aa7dcdcf8109424",
+      "source_bytes": 118057,
+      "stored_bytes": 118057
+    },
+    {
+      "file": "steps/evidence/ppo-scale-20261019/case-1-macros-50/checkpoint-0.pt",
+      "source": "steps/build/ppo-scale-20261019/case-1-macros-50/checkpoint-0.pt",
+      "source_sha256": "eafdffcb547377f06b35e96cdeae1f08df84987064050a0edf14a9bb0086295f",
+      "source_bytes": 39658,
+      "stored_bytes": 39658
+    },
+    {
+      "file": "steps/evidence/ppo-scale-20261019/case-1-macros-50/checkpoint-100.pt",
+      "source": "steps/build/ppo-scale-20261019/case-1-macros-50/checkpoint-100.pt",
+      "source_sha256": "f55466d9e5d22d2bc2691089e8b3b85cd504250eb8422aa7fe4cea18d976d2b8",
+      "source_bytes": 146094,
+      "stored_bytes": 146094
+    },
+    {
+      "file": "steps/evidence/ppo-scale-20261019/case-1-macros-50/checkpoint-25.pt",
+      "source": "steps/build/ppo-scale-20261019/case-1-macros-50/checkpoint-25.pt",
+      "source_sha256": "813fdfa5408e17e2e6499928b980518365e7c2940c67213e79838387f6599809",
+      "source_bytes": 117677,
+      "stored_bytes": 117677
+    },
+    {
+      "file": "steps/evidence/ppo-scale-20261019/case-1-macros-50/checkpoint-50.pt",
+      "source": "steps/build/ppo-scale-20261019/case-1-macros-50/checkpoint-50.pt",
+      "source_sha256": "abfc65dd3e868eaa35a817ae50ce73df5f602b705e2944a4a4603d117bf350e1",
+      "source_bytes": 127149,
+      "stored_bytes": 127149
+    },
+    {
+      "file": "steps/evidence/ppo-scale-20261019/case-1-macros-50/checkpoint-75.pt",
+      "source": "steps/build/ppo-scale-20261019/case-1-macros-50/checkpoint-75.pt",
+      "source_sha256": "e1e92dc34b036fdb9280485eae774fda512ff952f7928d1ec3909e0aa9a2d130",
+      "source_bytes": 136557,
+      "stored_bytes": 136557
+    },
+    {
+      "file": "steps/evidence/ppo-scale-20261019/case-1-macros-50/checkpoint.pt",
+      "source": "steps/build/ppo-scale-20261019/case-1-macros-50/checkpoint.pt",
+      "source_sha256": "08604d5c42e756cacb430b5512c1515071e5f8315fef910094742c559f07bcba",
+      "source_bytes": 145770,
+      "stored_bytes": 145770
+    },
+    {
+      "file": "steps/evidence/ppo-scale-20261019/case-1-macros-50/evaluation.json",
+      "source": "steps/build/ppo-scale-20261019/case-1-macros-50/evaluation.json",
+      "source_sha256": "3d3621609abb8a5c19564fa7a0eb9bb74d9e1dd50022b8d7b3bad1abc575049c",
+      "source_bytes": 766,
+      "stored_bytes": 766
+    },
+    {
+      "file": "steps/evidence/ppo-scale-20261019/case-1-macros-50/initial-evaluation.json",
+      "source": "steps/build/ppo-scale-20261019/case-1-macros-50/initial-evaluation.json",
+      "source_sha256": "a8a4a2d883113bbb450c6c0abf97eb342003dc5e6f9dc48b96ad5d2eaa71cca5",
+      "source_bytes": 747,
+      "stored_bytes": 747
+    },
+    {
+      "file": "steps/evidence/ppo-scale-20261019/case-1-macros-50/progress.json",
+      "source": "steps/build/ppo-scale-20261019/case-1-macros-50/progress.json",
+      "source_sha256": "2f379668ea157a7555bee9c7d56c1a3bb44369e3df9b5d3e159b4f10b02435b1",
+      "source_bytes": 91675,
+      "stored_bytes": 91675
+    },
+    {
+      "file": "steps/evidence/ppo-scale-20261019/case-1-macros-50/replay-0-update-0.json.gz",
+      "source": "steps/build/ppo-scale-20261019/case-1-macros-50/replay-0-update-0.json",
+      "source_sha256": "8794f89ec3dd92da4300c764a57ef5d5c301f6c85b6787d7a15c495b18d73c43",
+      "source_bytes": 5592144,
+      "stored_bytes": 3502176
+    },
+    {
+      "file": "steps/evidence/ppo-scale-20261019/case-1-macros-50/replay-0-update-100.json.gz",
+      "source": "steps/build/ppo-scale-20261019/case-1-macros-50/replay-0-update-100.json",
+      "source_sha256": "23c61048a621dc2a4d890a9feffe1f7aa781964c43fe75da8263a63b792e71a4",
+      "source_bytes": 5222052,
+      "stored_bytes": 3219460
+    },
+    {
+      "file": "steps/evidence/ppo-scale-20261019/case-1-macros-50/replay-0-update-25.json.gz",
+      "source": "steps/build/ppo-scale-20261019/case-1-macros-50/replay-0-update-25.json",
+      "source_sha256": "0eca9bf4813c14d0f9facb2c0d811198f57d3bb1ab44b48a1da3bbd46dd0c529",
+      "source_bytes": 5530187,
+      "stored_bytes": 3454619
+    },
+    {
+      "file": "steps/evidence/ppo-scale-20261019/case-1-macros-50/replay-0-update-50.json.gz",
+      "source": "steps/build/ppo-scale-20261019/case-1-macros-50/replay-0-update-50.json",
+      "source_sha256": "0577333153099becb3069a930f1eb076c38b89e4e94b816b96a85646cdecaf77",
+      "source_bytes": 5348664,
+      "stored_bytes": 3316974
+    },
+    {
+      "file": "steps/evidence/ppo-scale-20261019/case-1-macros-50/replay-0-update-75.json.gz",
+      "source": "steps/build/ppo-scale-20261019/case-1-macros-50/replay-0-update-75.json",
+      "source_sha256": "8a883bb4b1f6d72aa8e25a42c9d12009c0073fc73f92ffdfff995e44d71e9aef",
+      "source_bytes": 5369734,
+      "stored_bytes": 3331513
+    },
+    {
+      "file": "steps/evidence/ppo-scale-20261019/case-1-macros-50/replay-0.json.gz",
+      "source": "steps/build/ppo-scale-20261019/case-1-macros-50/replay-0.json",
+      "source_sha256": "23c61048a621dc2a4d890a9feffe1f7aa781964c43fe75da8263a63b792e71a4",
+      "source_bytes": 5222052,
+      "stored_bytes": 3219460
+    },
+    {
+      "file": "steps/evidence/ppo-scale-20261019/case-1-macros-50/rollout.json",
+      "source": "steps/build/ppo-scale-20261019/case-1-macros-50/rollout.json",
+      "source_sha256": "339ed9d5760cd168cb51570c97e5c8c91fedbb8d0b515305ac21d8f87b1fef70",
+      "source_bytes": 132984,
+      "stored_bytes": 132984
+    },
+    {
+      "file": "steps/evidence/ppo-scale-20261019/case-1-macros-50/samples-0-update-0.json",
+      "source": "steps/build/ppo-scale-20261019/case-1-macros-50/samples-0-update-0.json",
+      "source_sha256": "69a2096c9de06a43c363a30a82ffcda1066d354d5de353bf4b7d47a9f55c97fa",
+      "source_bytes": 22420,
+      "stored_bytes": 22420
+    },
+    {
+      "file": "steps/evidence/ppo-scale-20261019/case-1-macros-50/samples-0-update-100.json",
+      "source": "steps/build/ppo-scale-20261019/case-1-macros-50/samples-0-update-100.json",
+      "source_sha256": "c9df70b4ef0b90ad1e642d997fe69a62673a0750fac8f5af527d9b35746131ae",
+      "source_bytes": 22412,
+      "stored_bytes": 22412
+    },
+    {
+      "file": "steps/evidence/ppo-scale-20261019/case-1-macros-50/samples-0-update-25.json",
+      "source": "steps/build/ppo-scale-20261019/case-1-macros-50/samples-0-update-25.json",
+      "source_sha256": "d376cb63194c8f3dbbd85c6aefe838dc182f5c124c3dd554abe9cb5afd98c3cc",
+      "source_bytes": 22425,
+      "stored_bytes": 22425
+    },
+    {
+      "file": "steps/evidence/ppo-scale-20261019/case-1-macros-50/samples-0-update-50.json",
+      "source": "steps/build/ppo-scale-20261019/case-1-macros-50/samples-0-update-50.json",
+      "source_sha256": "a4c48b188ef2e84fbb3abe6d95426a13c908d4d263016409bb9683b4a0a46213",
+      "source_bytes": 22395,
+      "stored_bytes": 22395
+    },
+    {
+      "file": "steps/evidence/ppo-scale-20261019/case-1-macros-50/samples-0-update-75.json",
+      "source": "steps/build/ppo-scale-20261019/case-1-macros-50/samples-0-update-75.json",
+      "source_sha256": "81020088a9e2ad871abf447548ac4dfb0f237d5cc5015cc75137fb3177415131",
+      "source_bytes": 22412,
+      "stored_bytes": 22412
+    },
+    {
+      "file": "steps/evidence/ppo-scale-20261019/case-1-macros-50/study-after-evaluation.json",
+      "source": "steps/build/ppo-scale-20261019/case-1-macros-50/study-after-evaluation.json",
+      "source_sha256": "b14ffa68d043191daefc8d818fe44e2535fc51d6e181985f77c012b41cbb3565",
+      "source_bytes": 264,
+      "stored_bytes": 264
+    },
+    {
+      "file": "steps/evidence/ppo-scale-20261019/case-1-macros-50/study-after-samples-0.json",
+      "source": "steps/build/ppo-scale-20261019/case-1-macros-50/study-after-samples-0.json",
+      "source_sha256": "1920030a84af5f5d02d04096534cc9b07c2c3b229896444bc9f4436f09acd199",
+      "source_bytes": 89655,
+      "stored_bytes": 89655
+    },
+    {
+      "file": "steps/evidence/ppo-scale-20261019/case-1-macros-50/study-before-evaluation.json",
+      "source": "steps/build/ppo-scale-20261019/case-1-macros-50/study-before-evaluation.json",
+      "source_sha256": "52052bb8b6b7077741489cb37707df24ab7694fb7b428bf27ae3c7c98a1ed428",
+      "source_bytes": 262,
+      "stored_bytes": 262
+    },
+    {
+      "file": "steps/evidence/ppo-scale-20261019/case-1-macros-50/study-before-samples-0.json",
+      "source": "steps/build/ppo-scale-20261019/case-1-macros-50/study-before-samples-0.json",
+      "source_sha256": "35096fe007b2df231ff5416201b509cf4420da8b7891b0ac435ea468806bf435",
+      "source_bytes": 89718,
+      "stored_bytes": 89718
+    },
+    {
+      "file": "steps/evidence/ppo-scale-20261019/case-1-macros-50/study.json",
+      "source": "steps/build/ppo-scale-20261019/case-1-macros-50/study.json",
+      "source_sha256": "2bb690df8ed872a5c0e00858897d3073a121fb829c0a9f1382aeef7f1b40cc68",
+      "source_bytes": 549,
+      "stored_bytes": 549
+    },
+    {
+      "file": "steps/evidence/ppo-scale-20261019/case-1-macros-50/teaching-update-0.json.gz",
+      "source": "steps/build/ppo-scale-20261019/case-1-macros-50/teaching-update-0.json",
+      "source_sha256": "822853e64438258624d99eb129fc8200ad925fbaa530783e42d37d4caad2aeb4",
+      "source_bytes": 1216507,
+      "stored_bytes": 243393
+    },
+    {
+      "file": "steps/evidence/ppo-scale-20261019/case-1-macros-50/teaching-update-0.pt",
+      "source": "steps/build/ppo-scale-20261019/case-1-macros-50/teaching-update-0.pt",
+      "source_sha256": "36911e95e37b9b755889d6b110e9c54bd732bea338369122dfd3b9eb7976b6e9",
+      "source_bytes": 108081,
+      "stored_bytes": 108081
+    },
+    {
+      "file": "steps/evidence/ppo-scale-20261019/case-1-macros-50/teaching-update-100.json.gz",
+      "source": "steps/build/ppo-scale-20261019/case-1-macros-50/teaching-update-100.json",
+      "source_sha256": "df55916e2933bb479ef916f12b3ade12ff04520d1dee9677c3c7146f9f3395ff",
+      "source_bytes": 1213798,
+      "stored_bytes": 244052
+    },
+    {
+      "file": "steps/evidence/ppo-scale-20261019/case-1-macros-50/teaching-update-100.pt",
+      "source": "steps/build/ppo-scale-20261019/case-1-macros-50/teaching-update-100.pt",
+      "source_sha256": "c22d45e3ff4bb2e21c992417915904dc4d8c4886ee0494fc5fcda564c7d7280c",
+      "source_bytes": 146483,
+      "stored_bytes": 146483
+    },
+    {
+      "file": "steps/evidence/ppo-scale-20261019/case-1-macros-50/teaching-update-25.json.gz",
+      "source": "steps/build/ppo-scale-20261019/case-1-macros-50/teaching-update-25.json",
+      "source_sha256": "ec6752c21712bd80d946547f487435f913f5a3545b85d59eb7249a5ca3ac479d",
+      "source_bytes": 1215365,
+      "stored_bytes": 243794
+    },
+    {
+      "file": "steps/evidence/ppo-scale-20261019/case-1-macros-50/teaching-update-25.pt",
+      "source": "steps/build/ppo-scale-20261019/case-1-macros-50/teaching-update-25.pt",
+      "source_sha256": "20a1a41737340c9e9b0bb7ed0ee072a4863515a43533874ecf3fd7d00e7a3c55",
+      "source_bytes": 118130,
+      "stored_bytes": 118130
+    },
+    {
+      "file": "steps/evidence/ppo-scale-20261019/case-1-macros-50/teaching-update-50.json.gz",
+      "source": "steps/build/ppo-scale-20261019/case-1-macros-50/teaching-update-50.json",
+      "source_sha256": "c6312c2bdc7e609d7677765f0f915b84fa1a947114b067d5b5f2c7dc1cd148c8",
+      "source_bytes": 1215173,
+      "stored_bytes": 243827
+    },
+    {
+      "file": "steps/evidence/ppo-scale-20261019/case-1-macros-50/teaching-update-50.pt",
+      "source": "steps/build/ppo-scale-20261019/case-1-macros-50/teaching-update-50.pt",
+      "source_sha256": "f8d57765a876b6a6dfffbde5c5ec6b62b076c6021a22802885f6c027a3feb3bc",
+      "source_bytes": 127602,
+      "stored_bytes": 127602
+    },
+    {
+      "file": "steps/evidence/ppo-scale-20261019/case-1-macros-50/teaching-update-75.json.gz",
+      "source": "steps/build/ppo-scale-20261019/case-1-macros-50/teaching-update-75.json",
+      "source_sha256": "e5c3a2d4a7ff75c3b124fb33614dfcd511f730829cac26e3e6d5c1acdcdd39f0",
+      "source_bytes": 1214911,
+      "stored_bytes": 244145
+    },
+    {
+      "file": "steps/evidence/ppo-scale-20261019/case-1-macros-50/teaching-update-75.pt",
+      "source": "steps/build/ppo-scale-20261019/case-1-macros-50/teaching-update-75.pt",
+      "source_sha256": "66dc93657c66f36d60ebdbc00c7cfe109e6b62120ae679520c1118cd6a9abc01",
+      "source_bytes": 137010,
+      "stored_bytes": 137010
+    },
+    {
+      "file": "steps/evidence/ppo-scale-20261019/case-1-macros-50/teaching.json.gz",
+      "source": "steps/build/ppo-scale-20261019/case-1-macros-50/teaching.json",
+      "source_sha256": "df55916e2933bb479ef916f12b3ade12ff04520d1dee9677c3c7146f9f3395ff",
+      "source_bytes": 1213798,
+      "stored_bytes": 244052
+    },
+    {
+      "file": "steps/evidence/ppo-scale-20261019/case-1-macros-50/teaching.pt",
+      "source": "steps/build/ppo-scale-20261019/case-1-macros-50/teaching.pt",
+      "source_sha256": "c22d45e3ff4bb2e21c992417915904dc4d8c4886ee0494fc5fcda564c7d7280c",
+      "source_bytes": 146483,
+      "stored_bytes": 146483
+    },
+    {
+      "file": "steps/evidence/ppo-scale-20261019/case-1-macros-50/figures/ppo-floorplans.png",
+      "source": "steps/build/ppo-scale-20261019/case-1-macros-50/figures/ppo-floorplans.png",
+      "source_sha256": "adcb63c4f2791a82c2e2383485af6f3bb20dc8c2d9feff400feadc497a007b0c",
+      "source_bytes": 218970,
+      "stored_bytes": 218970
+    },
+    {
+      "file": "steps/evidence/ppo-scale-20261019/case-1-macros-50/figures/training-curve.png",
+      "source": "steps/build/ppo-scale-20261019/case-1-macros-50/figures/training-curve.png",
+      "source_sha256": "41dca0c866f51d778ceca73d74902efd5d249e0bffe350d97dc256862f67f3a7",
+      "source_bytes": 105794,
+      "stored_bytes": 105794
+    },
+    {
+      "file": "steps/evidence/ppo-scale-20261019/case-2-macros-100/checkpoint-0.pt",
+      "source": "steps/build/ppo-scale-20261019/case-2-macros-100/checkpoint-0.pt",
+      "source_sha256": "85b08ffb4e5a9d90a130726851d0edffb4c7827c9d4fbb7cda554b4fb166ec23",
+      "source_bytes": 39722,
+      "stored_bytes": 39722
+    },
+    {
+      "file": "steps/evidence/ppo-scale-20261019/case-2-macros-100/checkpoint-100.pt",
+      "source": "steps/build/ppo-scale-20261019/case-2-macros-100/checkpoint-100.pt",
+      "source_sha256": "a5e01d3fc0a40cf6cd0cf546f177fc3b98dfe3b024f4e46b52260d639219944e",
+      "source_bytes": 146286,
+      "stored_bytes": 146286
+    },
+    {
+      "file": "steps/evidence/ppo-scale-20261019/case-2-macros-100/checkpoint-25.pt",
+      "source": "steps/build/ppo-scale-20261019/case-2-macros-100/checkpoint-25.pt",
+      "source_sha256": "59f3c2d0fd42aade307bf8015f31c0af002afc66e3aa9f9971cd552c1c798406",
+      "source_bytes": 117677,
+      "stored_bytes": 117677
+    },
+    {
+      "file": "steps/evidence/ppo-scale-20261019/case-2-macros-100/checkpoint-50.pt",
+      "source": "steps/build/ppo-scale-20261019/case-2-macros-100/checkpoint-50.pt",
+      "source_sha256": "088917ab7f2739276b9f3542ec41675c61bd5e6aa83b0f6a6ed5f6912eed9580",
+      "source_bytes": 127213,
+      "stored_bytes": 127213
+    },
+    {
+      "file": "steps/evidence/ppo-scale-20261019/case-2-macros-100/checkpoint-75.pt",
+      "source": "steps/build/ppo-scale-20261019/case-2-macros-100/checkpoint-75.pt",
+      "source_sha256": "58204d85c66be8decd370a957b033f09e82ed39544c578cc5f3ad7c4e4a208f0",
+      "source_bytes": 136685,
+      "stored_bytes": 136685
+    },
+    {
+      "file": "steps/evidence/ppo-scale-20261019/case-2-macros-100/checkpoint.pt",
+      "source": "steps/build/ppo-scale-20261019/case-2-macros-100/checkpoint.pt",
+      "source_sha256": "a0613f2cf14b91f775958fac9de813772be6be1c32d1808c3d7d43ab91c34996",
+      "source_bytes": 145962,
+      "stored_bytes": 145962
+    },
+    {
+      "file": "steps/evidence/ppo-scale-20261019/case-2-macros-100/evaluation.json",
+      "source": "steps/build/ppo-scale-20261019/case-2-macros-100/evaluation.json",
+      "source_sha256": "9f163f8fc6cbac64312d2eed61e5028dc99ac0c1871c9b462433524c6efd319a",
+      "source_bytes": 1020,
+      "stored_bytes": 1020
+    },
+    {
+      "file": "steps/evidence/ppo-scale-20261019/case-2-macros-100/initial-evaluation.json",
+      "source": "steps/build/ppo-scale-20261019/case-2-macros-100/initial-evaluation.json",
+      "source_sha256": "5c880d4e7e01f717416e58b3b408b217e187f93d2b9b259f553a98510415e3a7",
+      "source_bytes": 1006,
+      "stored_bytes": 1006
+    },
+    {
+      "file": "steps/evidence/ppo-scale-20261019/case-2-macros-100/progress.json",
+      "source": "steps/build/ppo-scale-20261019/case-2-macros-100/progress.json",
+      "source_sha256": "b41719ca045017081f7f105d3ca0cdec032409522b31814e72bacf165f1431aa",
+      "source_bytes": 91709,
+      "stored_bytes": 91709
+    },
+    {
+      "file": "steps/evidence/ppo-scale-20261019/case-2-macros-100/replay-0-update-0.json.gz",
+      "source": "steps/build/ppo-scale-20261019/case-2-macros-100/replay-0-update-0.json",
+      "source_sha256": "aa762d22091c148750291b9f0075925fd70e0853fb9ff154bd22c6998687979d",
+      "source_bytes": 27238107,
+      "stored_bytes": 15941809
+    },
+    {
+      "file": "steps/evidence/ppo-scale-20261019/case-2-macros-100/replay-0-update-100.json.gz",
+      "source": "steps/build/ppo-scale-20261019/case-2-macros-100/replay-0-update-100.json",
+      "source_sha256": "67867e59b4d7a4a0a8a88c434fcbafd86ba398e1d5fd5060ff801b1f9d346dfd",
+      "source_bytes": 25935295,
+      "stored_bytes": 14954343
+    },
+    {
+      "file": "steps/evidence/ppo-scale-20261019/case-2-macros-100/replay-0-update-25.json.gz",
+      "source": "steps/build/ppo-scale-20261019/case-2-macros-100/replay-0-update-25.json",
+      "source_sha256": "f22638c4855c5278173f6fabcfd00c669d5a9c958b2d47ada5b2e622222d6a84",
+      "source_bytes": 27113937,
+      "stored_bytes": 15849476
+    },
+    {
+      "file": "steps/evidence/ppo-scale-20261019/case-2-macros-100/replay-0-update-50.json.gz",
+      "source": "steps/build/ppo-scale-20261019/case-2-macros-100/replay-0-update-50.json",
+      "source_sha256": "764131131b320d960c07c442d4b9436fcba121538fc2dc387675837abc80fd46",
+      "source_bytes": 26727711,
+      "stored_bytes": 15552685
+    },
+    {
+      "file": "steps/evidence/ppo-scale-20261019/case-2-macros-100/replay-0-update-75.json.gz",
+      "source": "steps/build/ppo-scale-20261019/case-2-macros-100/replay-0-update-75.json",
+      "source_sha256": "587fb7481bc3dcc48b858e7afea1e81ac89759f1707b49c846d89414bd1962d7",
+      "source_bytes": 26657832,
+      "stored_bytes": 15501620
+    },
+    {
+      "file": "steps/evidence/ppo-scale-20261019/case-2-macros-100/replay-0.json.gz",
+      "source": "steps/build/ppo-scale-20261019/case-2-macros-100/replay-0.json",
+      "source_sha256": "67867e59b4d7a4a0a8a88c434fcbafd86ba398e1d5fd5060ff801b1f9d346dfd",
+      "source_bytes": 25935295,
+      "stored_bytes": 14954343
+    },
+    {
+      "file": "steps/evidence/ppo-scale-20261019/case-2-macros-100/rollout.json",
+      "source": "steps/build/ppo-scale-20261019/case-2-macros-100/rollout.json",
+      "source_sha256": "9639a4179b59494e96519694fa7442fe007e05ebebe9b6ba9e93a8d7176ae251",
+      "source_bytes": 122580,
+      "stored_bytes": 122580
+    },
+    {
+      "file": "steps/evidence/ppo-scale-20261019/case-2-macros-100/samples-0-update-0.json",
+      "source": "steps/build/ppo-scale-20261019/case-2-macros-100/samples-0-update-0.json",
+      "source_sha256": "bc9acb67d78afa8e9122fe1dd426ab119738ab4b264332dd04d32d72db97cb80",
+      "source_bytes": 42813,
+      "stored_bytes": 42813
+    },
+    {
+      "file": "steps/evidence/ppo-scale-20261019/case-2-macros-100/samples-0-update-100.json",
+      "source": "steps/build/ppo-scale-20261019/case-2-macros-100/samples-0-update-100.json",
+      "source_sha256": "e651e9ba4d4fa38ca18ea5376da50f5e19d26a5ed3da436e52dbe22784c60e76",
+      "source_bytes": 42830,
+      "stored_bytes": 42830
+    },
+    {
+      "file": "steps/evidence/ppo-scale-20261019/case-2-macros-100/samples-0-update-25.json",
+      "source": "steps/build/ppo-scale-20261019/case-2-macros-100/samples-0-update-25.json",
+      "source_sha256": "8a3d8137483210a0d3e3ce35a96d0a0e29791454c7f0b50206c904580033b696",
+      "source_bytes": 42827,
+      "stored_bytes": 42827
+    },
+    {
+      "file": "steps/evidence/ppo-scale-20261019/case-2-macros-100/samples-0-update-50.json",
+      "source": "steps/build/ppo-scale-20261019/case-2-macros-100/samples-0-update-50.json",
+      "source_sha256": "084c64e12c7690b8c0df5b5c3b4949f698ea6f956e887b771b3c89cbfd2b2499",
+      "source_bytes": 42799,
+      "stored_bytes": 42799
+    },
+    {
+      "file": "steps/evidence/ppo-scale-20261019/case-2-macros-100/samples-0-update-75.json",
+      "source": "steps/build/ppo-scale-20261019/case-2-macros-100/samples-0-update-75.json",
+      "source_sha256": "b8da7e5c17529a08ce658ddca75359c6400f40e5cee7e23b6b603886e1b67203",
+      "source_bytes": 42807,
+      "stored_bytes": 42807
+    },
+    {
+      "file": "steps/evidence/ppo-scale-20261019/case-2-macros-100/study-after-evaluation.json",
+      "source": "steps/build/ppo-scale-20261019/case-2-macros-100/study-after-evaluation.json",
+      "source_sha256": "dcf6346fb0a243dba986366c094df27823b15886b7e9e4926eac8ee40928b316",
+      "source_bytes": 261,
+      "stored_bytes": 261
+    },
+    {
+      "file": "steps/evidence/ppo-scale-20261019/case-2-macros-100/study-after-samples-0.json",
+      "source": "steps/build/ppo-scale-20261019/case-2-macros-100/study-after-samples-0.json",
+      "source_sha256": "66c22f372aa9de1832774defeb1bac0df2e03235e31798e043abc474c2be76af",
+      "source_bytes": 171303,
+      "stored_bytes": 171303
+    },
+    {
+      "file": "steps/evidence/ppo-scale-20261019/case-2-macros-100/study-before-evaluation.json",
+      "source": "steps/build/ppo-scale-20261019/case-2-macros-100/study-before-evaluation.json",
+      "source_sha256": "ede3fc20fb74e5b2eeeeab66ac7bac97b0da43540b04c8855d652de7b6945a4a",
+      "source_bytes": 262,
+      "stored_bytes": 262
+    },
+    {
+      "file": "steps/evidence/ppo-scale-20261019/case-2-macros-100/study-before-samples-0.json",
+      "source": "steps/build/ppo-scale-20261019/case-2-macros-100/study-before-samples-0.json",
+      "source_sha256": "98fdf2cdd91bf2281136484ba81df65053118bf807cb1fe3db84b611383f1b10",
+      "source_bytes": 171292,
+      "stored_bytes": 171292
+    },
+    {
+      "file": "steps/evidence/ppo-scale-20261019/case-2-macros-100/study.json",
+      "source": "steps/build/ppo-scale-20261019/case-2-macros-100/study.json",
+      "source_sha256": "cbb2ddc0abd8c90fea04da29a3067d4c9954ccc3b8fc24cceaabd9ea553a216b",
+      "source_bytes": 546,
+      "stored_bytes": 546
+    },
+    {
+      "file": "steps/evidence/ppo-scale-20261019/case-2-macros-100/teaching-update-0.json.gz",
+      "source": "steps/build/ppo-scale-20261019/case-2-macros-100/teaching-update-0.json",
+      "source_sha256": "a25d993a4445238a10b8f1eebe82d8721ac3f08cd2122535be5279e78d529440",
+      "source_bytes": 3507655,
+      "stored_bytes": 473585
+    },
+    {
+      "file": "steps/evidence/ppo-scale-20261019/case-2-macros-100/teaching-update-0.pt",
+      "source": "steps/build/ppo-scale-20261019/case-2-macros-100/teaching-update-0.pt",
+      "source_sha256": "6ccad85c823682dc69d614297309968b70382c8b05e684ae1a0368d75492815b",
+      "source_bytes": 108081,
+      "stored_bytes": 108081
+    },
+    {
+      "file": "steps/evidence/ppo-scale-20261019/case-2-macros-100/teaching-update-100.json.gz",
+      "source": "steps/build/ppo-scale-20261019/case-2-macros-100/teaching-update-100.json",
+      "source_sha256": "d38f41ce3c3eb6a25bff1128efcf906e58773fc375094a7a1d09b4cb92446fd9",
+      "source_bytes": 3511037,
+      "stored_bytes": 474523
+    },
+    {
+      "file": "steps/evidence/ppo-scale-20261019/case-2-macros-100/teaching-update-100.pt",
+      "source": "steps/build/ppo-scale-20261019/case-2-macros-100/teaching-update-100.pt",
+      "source_sha256": "d5df057008192431b4634e0cb6880792a621fe279e988d4d978fab1106677d18",
+      "source_bytes": 146675,
+      "stored_bytes": 146675
+    },
+    {
+      "file": "steps/evidence/ppo-scale-20261019/case-2-macros-100/teaching-update-25.json.gz",
+      "source": "steps/build/ppo-scale-20261019/case-2-macros-100/teaching-update-25.json",
+      "source_sha256": "8237a47b6465bda46df770282906c1d5efa835f5c4c56777f770717d4207ca68",
+      "source_bytes": 3509615,
+      "stored_bytes": 474354
+    },
+    {
+      "file": "steps/evidence/ppo-scale-20261019/case-2-macros-100/teaching-update-25.pt",
+      "source": "steps/build/ppo-scale-20261019/case-2-macros-100/teaching-update-25.pt",
+      "source_sha256": "542d6293b1f21234635cc5bd801e714257ca1fd79b8837b4d5a3bd477fd7c66f",
+      "source_bytes": 118194,
+      "stored_bytes": 118194
+    },
+    {
+      "file": "steps/evidence/ppo-scale-20261019/case-2-macros-100/teaching-update-50.json.gz",
+      "source": "steps/build/ppo-scale-20261019/case-2-macros-100/teaching-update-50.json",
+      "source_sha256": "57751931e855481cb0be5fca9362e1612c8f531e83775b0abb034bca30e566ba",
+      "source_bytes": 3509976,
+      "stored_bytes": 474302
+    },
+    {
+      "file": "steps/evidence/ppo-scale-20261019/case-2-macros-100/teaching-update-50.pt",
+      "source": "steps/build/ppo-scale-20261019/case-2-macros-100/teaching-update-50.pt",
+      "source_sha256": "54b86baf0b713e24b01a3532e919eecd9c0ee1560b3aef760487c093d015fd36",
+      "source_bytes": 127666,
+      "stored_bytes": 127666
+    },
+    {
+      "file": "steps/evidence/ppo-scale-20261019/case-2-macros-100/teaching-update-75.json.gz",
+      "source": "steps/build/ppo-scale-20261019/case-2-macros-100/teaching-update-75.json",
+      "source_sha256": "e41a9a94e2dba22a5513cfe2da41f2199949c725e10c6c571fc815cf2402b79d",
+      "source_bytes": 3514023,
+      "stored_bytes": 474568
+    },
+    {
+      "file": "steps/evidence/ppo-scale-20261019/case-2-macros-100/teaching-update-75.pt",
+      "source": "steps/build/ppo-scale-20261019/case-2-macros-100/teaching-update-75.pt",
+      "source_sha256": "23261dbaeb4952dfc72569a6728d59133c4c2be694554bf2a062e7d392dbf70d",
+      "source_bytes": 137138,
+      "stored_bytes": 137138
+    },
+    {
+      "file": "steps/evidence/ppo-scale-20261019/case-2-macros-100/teaching.json.gz",
+      "source": "steps/build/ppo-scale-20261019/case-2-macros-100/teaching.json",
+      "source_sha256": "d38f41ce3c3eb6a25bff1128efcf906e58773fc375094a7a1d09b4cb92446fd9",
+      "source_bytes": 3511037,
+      "stored_bytes": 474523
+    },
+    {
+      "file": "steps/evidence/ppo-scale-20261019/case-2-macros-100/teaching.pt",
+      "source": "steps/build/ppo-scale-20261019/case-2-macros-100/teaching.pt",
+      "source_sha256": "d5df057008192431b4634e0cb6880792a621fe279e988d4d978fab1106677d18",
+      "source_bytes": 146675,
+      "stored_bytes": 146675
+    },
+    {
+      "file": "steps/evidence/ppo-scale-20261019/case-2-macros-100/figures/ppo-floorplans.png",
+      "source": "steps/build/ppo-scale-20261019/case-2-macros-100/figures/ppo-floorplans.png",
+      "source_sha256": "56e1ceecf59a4c472f46670d70a6df288a2ac03ac3ea63b8313214b14e5c8ffb",
+      "source_bytes": 283208,
+      "stored_bytes": 283208
+    },
+    {
+      "file": "steps/evidence/ppo-scale-20261019/case-2-macros-100/figures/training-curve.png",
+      "source": "steps/build/ppo-scale-20261019/case-2-macros-100/figures/training-curve.png",
+      "source_sha256": "6f05a9737308c759f03d089ecbbeb3b0a7bd87ba6d90ed0d06848e1673ae363d",
+      "source_bytes": 100953,
+      "stored_bytes": 100953
+    },
+    {
+      "file": "steps/evidence/ppo-scale-probe-100/checkpoint-0.pt",
+      "source": "steps/build/ppo-scale-probe-100/checkpoint-0.pt",
+      "source_sha256": "9f91bf250184c8c457872c4a1942b6e65871df8ff41e38a7e64606dbfa99dc2f",
+      "source_bytes": 39658,
+      "stored_bytes": 39658
+    },
+    {
+      "file": "steps/evidence/ppo-scale-probe-100/checkpoint-2.pt",
+      "source": "steps/build/ppo-scale-probe-100/checkpoint-2.pt",
+      "source_sha256": "e41f17a0469e0459ec8f0db88ac7ca736d3e3d6be94497357ef7323717a61c08",
+      "source_bytes": 108140,
+      "stored_bytes": 108140
+    },
+    {
+      "file": "steps/evidence/ppo-scale-probe-100/checkpoint.pt",
+      "source": "steps/build/ppo-scale-probe-100/checkpoint.pt",
+      "source_sha256": "c07ee237a99ca8471f5b7290c72f555ec4e0d9151d6f63550634080836c0cd5d",
+      "source_bytes": 108010,
+      "stored_bytes": 108010
+    },
+    {
+      "file": "steps/evidence/ppo-scale-probe-100/evaluation.json",
+      "source": "steps/build/ppo-scale-probe-100/evaluation.json",
+      "source_sha256": "a8421d43b9dbfda8ebe5348bbf2eb8e502e358188e1dd768d7c9e000871a0b14",
+      "source_bytes": 999,
+      "stored_bytes": 999
+    },
+    {
+      "file": "steps/evidence/ppo-scale-probe-100/initial-evaluation.json",
+      "source": "steps/build/ppo-scale-probe-100/initial-evaluation.json",
+      "source_sha256": "cb8ba52ef8e0789e98139ec055d57ae9be69cc060a4092ea277219700bd26c31",
+      "source_bytes": 986,
+      "stored_bytes": 986
+    },
+    {
+      "file": "steps/evidence/ppo-scale-probe-100/progress.json",
+      "source": "steps/build/ppo-scale-probe-100/progress.json",
+      "source_sha256": "45be7a9b15d0e5ed7bb8e603b462c33c827296b99a7a1da2b261035ae3c86f66",
+      "source_bytes": 2418,
+      "stored_bytes": 2418
+    },
+    {
+      "file": "steps/evidence/ppo-scale-probe-100/replay-0-update-0.json.gz",
+      "source": "steps/build/ppo-scale-probe-100/replay-0-update-0.json",
+      "source_sha256": "6e4afee8d56d3b4f7f19581de9c17acdab1d6edc5a93a8711e4131ca245f79b3",
+      "source_bytes": 15069855,
+      "stored_bytes": 6675335
+    },
+    {
+      "file": "steps/evidence/ppo-scale-probe-100/replay-0-update-2.json.gz",
+      "source": "steps/build/ppo-scale-probe-100/replay-0-update-2.json",
+      "source_sha256": "423dcf9c2244baa679b774b459c727ed1506f44c396bb7ce9ff91e4bbabf9a9c",
+      "source_bytes": 15158782,
+      "stored_bytes": 6741926
+    },
+    {
+      "file": "steps/evidence/ppo-scale-probe-100/replay-0.json.gz",
+      "source": "steps/build/ppo-scale-probe-100/replay-0.json",
+      "source_sha256": "423dcf9c2244baa679b774b459c727ed1506f44c396bb7ce9ff91e4bbabf9a9c",
+      "source_bytes": 15158782,
+      "stored_bytes": 6741926
+    },
+    {
+      "file": "steps/evidence/ppo-scale-probe-100/rollout.json",
+      "source": "steps/build/ppo-scale-probe-100/rollout.json",
+      "source_sha256": "ae02b1a9c99c951e13d0e6be8ef0ef04f7afda4fe7957d319f890f6590f71a7e",
+      "source_bytes": 48928,
+      "stored_bytes": 48928
+    },
+    {
+      "file": "steps/evidence/ppo-scale-probe-100/samples-0-update-0.json",
+      "source": "steps/build/ppo-scale-probe-100/samples-0-update-0.json",
+      "source_sha256": "e3210c35e2230994c645176e3ee327386d1f908378582fdba3328879090467df",
+      "source_bytes": 9920,
+      "stored_bytes": 9920
+    },
+    {
+      "file": "steps/evidence/ppo-scale-probe-100/samples-0-update-2.json",
+      "source": "steps/build/ppo-scale-probe-100/samples-0-update-2.json",
+      "source_sha256": "9b6bb54a4d72e86f787bafac09c4fc7936ed4a83bcc6685c8482d63684ad7880",
+      "source_bytes": 9839,
+      "stored_bytes": 9839
+    },
+    {
+      "file": "steps/evidence/ppo-scale-probe-100/study-after-evaluation.json",
+      "source": "steps/build/ppo-scale-probe-100/study-after-evaluation.json",
+      "source_sha256": "3efb0f65a1df9e388e5860168b27ee3045ba78bddaa97b5bbd168312e6219883",
+      "source_bytes": 236,
+      "stored_bytes": 236
+    },
+    {
+      "file": "steps/evidence/ppo-scale-probe-100/study-after-samples-0.json",
+      "source": "steps/build/ppo-scale-probe-100/study-after-samples-0.json",
+      "source_sha256": "6cfd26a4fe65a74084bbb676579bcdc44bc8f9bbd038e1d9ad2b996381a6ecb5",
+      "source_bytes": 157742,
+      "stored_bytes": 157742
+    },
+    {
+      "file": "steps/evidence/ppo-scale-probe-100/study-before-evaluation.json",
+      "source": "steps/build/ppo-scale-probe-100/study-before-evaluation.json",
+      "source_sha256": "dc48e8c8cb29ae263cb18824afd6abbbc3047e1d8ded5df7066f18c87fc9462e",
+      "source_bytes": 236,
+      "stored_bytes": 236
+    },
+    {
+      "file": "steps/evidence/ppo-scale-probe-100/study-before-samples-0.json",
+      "source": "steps/build/ppo-scale-probe-100/study-before-samples-0.json",
+      "source_sha256": "c906e2947847a5a7fde735dababbc3a5f9d87137a9e1348ee44f683d7df459d5",
+      "source_bytes": 159352,
+      "stored_bytes": 159352
+    },
+    {
+      "file": "steps/evidence/ppo-scale-probe-100/study.json",
+      "source": "steps/build/ppo-scale-probe-100/study.json",
+      "source_sha256": "867d725e02183888db348251731efd66ca8b8f448a322beeee50fd730f2c2342",
+      "source_bytes": 481,
+      "stored_bytes": 481
+    },
+    {
+      "file": "steps/evidence/ppo-scale-probe-100/teaching-update-0.json.gz",
+      "source": "steps/build/ppo-scale-probe-100/teaching-update-0.json",
+      "source_sha256": "e89416647a4dd587b3f25d2316f28d65116462412ebbc0dd74351a49b38cb69e",
+      "source_bytes": 3185015,
+      "stored_bytes": 273643
+    },
+    {
+      "file": "steps/evidence/ppo-scale-probe-100/teaching-update-0.pt",
+      "source": "steps/build/ppo-scale-probe-100/teaching-update-0.pt",
+      "source_sha256": "ec59fd122deda70018ffa1a91ba6b6b86ad113dd530ff9ec5335194931c2b216",
+      "source_bytes": 108081,
+      "stored_bytes": 108081
+    },
+    {
+      "file": "steps/evidence/ppo-scale-probe-100/teaching-update-2.json.gz",
+      "source": "steps/build/ppo-scale-probe-100/teaching-update-2.json",
+      "source_sha256": "e4b5820cf41ffca6975fed6e369c3444b1cea3eafe44ecb0aab1e9873dbf69b0",
+      "source_bytes": 3146496,
+      "stored_bytes": 273025
+    },
+    {
+      "file": "steps/evidence/ppo-scale-probe-100/teaching-update-2.pt",
+      "source": "steps/build/ppo-scale-probe-100/teaching-update-2.pt",
+      "source_sha256": "e0a770b3f929371d40aebc6dcda6857df7eccb93972e49a3852661ef2542fd30",
+      "source_bytes": 108593,
+      "stored_bytes": 108593
+    },
+    {
+      "file": "steps/evidence/ppo-scale-probe-100/teaching.json.gz",
+      "source": "steps/build/ppo-scale-probe-100/teaching.json",
+      "source_sha256": "e4b5820cf41ffca6975fed6e369c3444b1cea3eafe44ecb0aab1e9873dbf69b0",
+      "source_bytes": 3146496,
+      "stored_bytes": 273025
+    },
+    {
+      "file": "steps/evidence/ppo-scale-probe-100/teaching.pt",
+      "source": "steps/build/ppo-scale-probe-100/teaching.pt",
+      "source_sha256": "e0a770b3f929371d40aebc6dcda6857df7eccb93972e49a3852661ef2542fd30",
+      "source_bytes": 108593,
+      "stored_bytes": 108593
+    },
+    {
+      "file": "steps/evidence/ppo-scale-probe-100/figures/ppo-floorplans.png",
+      "source": "steps/build/ppo-scale-probe-100/figures/ppo-floorplans.png",
+      "source_sha256": "aaa5fce73c65cf983e06f3173cf5c6b9d3948d3f99a1eff4acc4465c3ca17709",
+      "source_bytes": 378610,
+      "stored_bytes": 378610
+    },
+    {
+      "file": "steps/evidence/ppo-scale-probe-100/figures/training-curve.png",
+      "source": "steps/build/ppo-scale-probe-100/figures/training-curve.png",
+      "source_sha256": "421d9b9365bfc689a492f1e1bb6aa7750bebea399e6d9d208033fea301149e6c",
+      "source_bytes": 68807,
+      "stored_bytes": 68807
+    },
+    {
+      "file": "steps/evidence/ppo-ablation-100/plan.json",
+      "source": "steps/build/ppo-ablation-100/plan.json",
+      "source_sha256": "8cd606ea653c756af66f210db6e05e98dc9fb75d57c9eb4c5cfd0a207d9a1a93",
+      "source_bytes": 217,
+      "stored_bytes": 217
+    },
+    {
+      "file": "steps/evidence/ppo-ablation-100/summary.json",
+      "source": "steps/build/ppo-ablation-100/summary.json",
+      "source_sha256": "4192352acdcdac54451519cc7f934cb69588a2ae8749678f251330e9bc8e60fe",
+      "source_bytes": 23621,
+      "stored_bytes": 23621
+    },
+    {
+      "file": "steps/evidence/ppo-ablation-100/seed-0-weight-0/evaluation.json",
+      "source": "steps/build/ppo-ablation-100/seed-0-weight-0/evaluation.json",
+      "source_sha256": "5a61813c796808a757e9ded439a8ec7acafc3b2df1fc03dcde8345402c5ec2b4",
+      "source_bytes": 1070,
+      "stored_bytes": 1070
+    },
+    {
+      "file": "steps/evidence/ppo-ablation-100/seed-0-weight-0/initial-evaluation.json",
+      "source": "steps/build/ppo-ablation-100/seed-0-weight-0/initial-evaluation.json",
+      "source_sha256": "a2bcf7caac84170344b441f1d45071227482fa16baa80d40adef59ec65bbb66f",
+      "source_bytes": 1047,
+      "stored_bytes": 1047
+    },
+    {
+      "file": "steps/evidence/ppo-ablation-100/seed-0-weight-0/progress.json",
+      "source": "steps/build/ppo-ablation-100/seed-0-weight-0/progress.json",
+      "source_sha256": "ae307094cfe88331f06c8c4001d9e4d4130c4ad1531df94cde9cb5738997c722",
+      "source_bytes": 41462,
+      "stored_bytes": 41462
+    },
+    {
+      "file": "steps/evidence/ppo-ablation-100/seed-0-weight-0.5/evaluation.json",
+      "source": "steps/build/ppo-ablation-100/seed-0-weight-0.5/evaluation.json",
+      "source_sha256": "a9ff347c5047736898accf589f88473f6bac5c2b282f666e72316c48543b7da6",
+      "source_bytes": 1065,
+      "stored_bytes": 1065
+    },
+    {
+      "file": "steps/evidence/ppo-ablation-100/seed-0-weight-0.5/initial-evaluation.json",
+      "source": "steps/build/ppo-ablation-100/seed-0-weight-0.5/initial-evaluation.json",
+      "source_sha256": "99893682815089fd13dc831ef8347c015f95bcc3fa797a20a359c59543f24353",
+      "source_bytes": 1059,
+      "stored_bytes": 1059
+    },
+    {
+      "file": "steps/evidence/ppo-ablation-100/seed-0-weight-0.5/progress.json",
+      "source": "steps/build/ppo-ablation-100/seed-0-weight-0.5/progress.json",
+      "source_sha256": "7e146ca70173e5a560ba524eafc3f2b25440223fb921f26305d11ba1485595c4",
+      "source_bytes": 41894,
+      "stored_bytes": 41894
+    },
+    {
+      "file": "steps/evidence/ppo-ablation-100/seed-0-weight-1/evaluation.json",
+      "source": "steps/build/ppo-ablation-100/seed-0-weight-1/evaluation.json",
+      "source_sha256": "1246726c7bb4c15eea643e6c55ad188efdfbd2c91aae9f93400616b5dde1e3e5",
+      "source_bytes": 1084,
+      "stored_bytes": 1084
+    },
+    {
+      "file": "steps/evidence/ppo-ablation-100/seed-0-weight-1/initial-evaluation.json",
+      "source": "steps/build/ppo-ablation-100/seed-0-weight-1/initial-evaluation.json",
+      "source_sha256": "ca03d9b0ef28a32abd54d9ac84d81efb360647f6274c9c034147460f75bb03ed",
+      "source_bytes": 1054,
+      "stored_bytes": 1054
+    },
+    {
+      "file": "steps/evidence/ppo-ablation-100/seed-0-weight-1/progress.json",
+      "source": "steps/build/ppo-ablation-100/seed-0-weight-1/progress.json",
+      "source_sha256": "fe84e926b8d6a9aafd9d3dbe73fc95c632b3b72edbcf66f4b241e80d11dbfcf9",
+      "source_bytes": 41905,
+      "stored_bytes": 41905
+    },
+    {
+      "file": "steps/evidence/ppo-ablation-100/seed-1-weight-0/evaluation.json",
+      "source": "steps/build/ppo-ablation-100/seed-1-weight-0/evaluation.json",
+      "source_sha256": "7d6e5c96d4ea1281c4cee989da179504c519f08c277e197c28e11ca22e81cfc6",
+      "source_bytes": 1070,
+      "stored_bytes": 1070
+    },
+    {
+      "file": "steps/evidence/ppo-ablation-100/seed-1-weight-0/initial-evaluation.json",
+      "source": "steps/build/ppo-ablation-100/seed-1-weight-0/initial-evaluation.json",
+      "source_sha256": "faad81e28c24428ff88699f6a95d3154ea44410974b7c1977b4b20a1f2e0bfca",
+      "source_bytes": 1033,
+      "stored_bytes": 1033
+    },
+    {
+      "file": "steps/evidence/ppo-ablation-100/seed-1-weight-0/progress.json",
+      "source": "steps/build/ppo-ablation-100/seed-1-weight-0/progress.json",
+      "source_sha256": "98f4d589c1e36f93cb0c823744383b9186970f4baf8c7dd4bdc28c9a6f4d8f9d",
+      "source_bytes": 41143,
+      "stored_bytes": 41143
+    },
+    {
+      "file": "steps/evidence/ppo-ablation-100/seed-1-weight-0.5/evaluation.json",
+      "source": "steps/build/ppo-ablation-100/seed-1-weight-0.5/evaluation.json",
+      "source_sha256": "be0f22ab6037c98ef4d06d1552f614849e4b66b7c1a77a3cda3be6cb0ec01f10",
+      "source_bytes": 1085,
+      "stored_bytes": 1085
+    },
+    {
+      "file": "steps/evidence/ppo-ablation-100/seed-1-weight-0.5/initial-evaluation.json",
+      "source": "steps/build/ppo-ablation-100/seed-1-weight-0.5/initial-evaluation.json",
+      "source_sha256": "70bb61c095b63252bd838685bd7e199c20d07d1402ba88d129a62da99a262820",
+      "source_bytes": 1042,
+      "stored_bytes": 1042
+    },
+    {
+      "file": "steps/evidence/ppo-ablation-100/seed-1-weight-0.5/progress.json",
+      "source": "steps/build/ppo-ablation-100/seed-1-weight-0.5/progress.json",
+      "source_sha256": "f9074bff15ca2828c3d2b6041c964254bee7ca73f5be1f711f8333c05722e8a5",
+      "source_bytes": 41689,
+      "stored_bytes": 41689
+    },
+    {
+      "file": "steps/evidence/ppo-ablation-100/seed-1-weight-1/evaluation.json",
+      "source": "steps/build/ppo-ablation-100/seed-1-weight-1/evaluation.json",
+      "source_sha256": "62956120c93941a6c2815d80b2e274cf27a5dc4f41fcc1a1d26b8bbfa8ddb056",
+      "source_bytes": 1085,
+      "stored_bytes": 1085
+    },
+    {
+      "file": "steps/evidence/ppo-ablation-100/seed-1-weight-1/initial-evaluation.json",
+      "source": "steps/build/ppo-ablation-100/seed-1-weight-1/initial-evaluation.json",
+      "source_sha256": "4b3f7eea58ff8da746013f50f49285fe56500f5546c3a8d1187fbf01803f4655",
+      "source_bytes": 1035,
+      "stored_bytes": 1035
+    },
+    {
+      "file": "steps/evidence/ppo-ablation-100/seed-1-weight-1/progress.json",
+      "source": "steps/build/ppo-ablation-100/seed-1-weight-1/progress.json",
+      "source_sha256": "b1facd42b724ef2d931b285f262cd6627e323948f5d481ea2e8e09a319ef6862",
+      "source_bytes": 41637,
+      "stored_bytes": 41637
+    },
+    {
+      "file": "steps/evidence/ppo-ablation-100/seed-2-weight-0/evaluation.json",
+      "source": "steps/build/ppo-ablation-100/seed-2-weight-0/evaluation.json",
+      "source_sha256": "a93c8217435059e73dd6cf53a59826267e7c88db0b35aaa424c54f8da0c01d6b",
+      "source_bytes": 1047,
+      "stored_bytes": 1047
+    },
+    {
+      "file": "steps/evidence/ppo-ablation-100/seed-2-weight-0/initial-evaluation.json",
+      "source": "steps/build/ppo-ablation-100/seed-2-weight-0/initial-evaluation.json",
+      "source_sha256": "6431a2d4b8df45988304639779eee5f6ff1ff92e097256ac17eeace5aa912d69",
+      "source_bytes": 1060,
+      "stored_bytes": 1060
+    },
+    {
+      "file": "steps/evidence/ppo-ablation-100/seed-2-weight-0/progress.json",
+      "source": "steps/build/ppo-ablation-100/seed-2-weight-0/progress.json",
+      "source_sha256": "16067d0dbce0ec8b830bb6e39098d0a46a71bfc74444198794ea01d1f53103af",
+      "source_bytes": 41241,
+      "stored_bytes": 41241
+    },
+    {
+      "file": "steps/evidence/ppo-ablation-100/seed-2-weight-0.5/evaluation.json",
+      "source": "steps/build/ppo-ablation-100/seed-2-weight-0.5/evaluation.json",
+      "source_sha256": "c4478e649add485917dbc47aebc3f6a027a7fc4e08a5d26c96e1ceeb4401948a",
+      "source_bytes": 1067,
+      "stored_bytes": 1067
+    },
+    {
+      "file": "steps/evidence/ppo-ablation-100/seed-2-weight-0.5/initial-evaluation.json",
+      "source": "steps/build/ppo-ablation-100/seed-2-weight-0.5/initial-evaluation.json",
+      "source_sha256": "5d289558766511b8fbf48a2833a1c2e5217e8667b177e256123c96c7d91b39fe",
+      "source_bytes": 1067,
+      "stored_bytes": 1067
+    },
+    {
+      "file": "steps/evidence/ppo-ablation-100/seed-2-weight-0.5/progress.json",
+      "source": "steps/build/ppo-ablation-100/seed-2-weight-0.5/progress.json",
+      "source_sha256": "fbec2d8bb051c181f21fa30ff9a2bfb025aa5e585319be3f116a63625f6a8751",
+      "source_bytes": 42198,
+      "stored_bytes": 42198
+    },
+    {
+      "file": "steps/evidence/ppo-ablation-100/seed-2-weight-1/evaluation.json",
+      "source": "steps/build/ppo-ablation-100/seed-2-weight-1/evaluation.json",
+      "source_sha256": "222a3d5106ba98f3903c182ef561adab5f39924cf63de8e5c163c4e704db1ff1",
+      "source_bytes": 1072,
+      "stored_bytes": 1072
+    },
+    {
+      "file": "steps/evidence/ppo-ablation-100/seed-2-weight-1/initial-evaluation.json",
+      "source": "steps/build/ppo-ablation-100/seed-2-weight-1/initial-evaluation.json",
+      "source_sha256": "4b638c06a27b82593655335ce09a60fa4b65f57cac23573e0681beb8e2bd0d08",
+      "source_bytes": 1058,
+      "stored_bytes": 1058
+    },
+    {
+      "file": "steps/evidence/ppo-ablation-100/seed-2-weight-1/progress.json",
+      "source": "steps/build/ppo-ablation-100/seed-2-weight-1/progress.json",
+      "source_sha256": "9142deb677a3c548fbc0d8512297c279c1b17d6cfe763658b4c2e6516abf7943",
+      "source_bytes": 41974,
+      "stored_bytes": 41974
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+# Auto-generated design: 5 blocks, 5 nets
+BLOCKS
+B0 25 8
+B1 5 28
+B2 13 12
+B3 12 9
+B4 28 8
+NETS
+B4 B0 B2 B1
+B0 B4
+B1 B0
+B1 B3 B0 B4
+B2 B0 B3 B1

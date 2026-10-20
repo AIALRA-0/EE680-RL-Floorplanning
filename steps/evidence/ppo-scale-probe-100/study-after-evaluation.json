@@ -1,0 +1,1 @@
+{"seed": 100000, "circuits": [{"input": "benchmarks\\alarik-synthetic\\blknet_100.txt", "checkpoint_update": 2, "episodes": 32, "legal_completion_rate": 0.0, "mean_reward": -2.0, "mean_area_complete": null, "mean_hpwl_complete": null}]}

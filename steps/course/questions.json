@@ -1,0 +1,1138 @@
+{
+  "questions": [
+    {
+      "id": "00-parse",
+      "chapter": "00",
+      "question": "What does the circuit file describe before placement",
+      "dependencies": [],
+      "premise": "Start with the actual supplied circuit file.",
+      "plan": [
+        {
+          "id": "00-parse-p1",
+          "statement": "Read counts before records",
+          "source_ids": [
+            "source-00-parse"
+          ]
+        },
+        {
+          "id": "00-parse-p2",
+          "statement": "Keep a net as a hyperedge",
+          "source_ids": [
+            "source-00-parse"
+          ]
+        },
+        {
+          "id": "00-parse-p3",
+          "statement": "Reject malformed input before training",
+          "source_ids": [
+            "source-00-parse"
+          ]
+        }
+      ],
+      "explanation": [
+        {
+          "id": "00-parse-p1",
+          "title": "Read counts before records",
+          "statement": "The first count tells the parser how many block records to consume. Each record supplies a unique name, width and height. float(\"5\") converts the text token into a numeric dimension; the name remains a string.",
+          "source_ids": [
+            "source-00-parse"
+          ],
+          "grounding": "src/data/parse_blknet.py:8 (load_circuit)"
+        },
+        {
+          "id": "00-parse-p2",
+          "title": "Keep a net as a hyperedge",
+          "statement": "The next count is the number of nets, not the number of endpoints in every net. A line such as B4 B0 B2 B1 is one net with four named endpoints. Its membership must remain available when positions later change.",
+          "source_ids": [
+            "source-00-parse"
+          ],
+          "grounding": "src/data/parse_blknet.py:8 (load_circuit)"
+        },
+        {
+          "id": "00-parse-p3",
+          "title": "Reject malformed input before training",
+          "statement": "Unknown names, duplicate block records, invalid dimensions and a net with fewer than two endpoints raise errors. The parser returns blocks and nets only; it does not invent placement coordinates. Open chapter 00 in the lab to compare raw text and parsed records.",
+          "source_ids": [
+            "source-00-parse"
+          ],
+          "grounding": "src/data/parse_blknet.py:8 (load_circuit)"
+        }
+      ],
+      "result": {
+        "answer": "The input defines named rectangles and connectivity; placement coordinates are a later environment state.",
+        "generalization": "Do not treat a net count as a fixed endpoint count."
+      },
+      "appendix": {
+        "pitfall": "Do not treat a net count as a fixed endpoint count."
+      },
+      "source_ids": [
+        "source-00-parse"
+      ]
+    },
+    {
+      "id": "00-state",
+      "chapter": "00",
+      "question": "Which information changes when a macro is placed",
+      "dependencies": [
+        "00-parse"
+      ],
+      "premise": "The input defines named rectangles and connectivity; placement coordinates are a later environment state.",
+      "plan": [
+        {
+          "id": "00-state-p1",
+          "statement": "Separate the circuit from its state",
+          "source_ids": [
+            "source-00-state"
+          ]
+        },
+        {
+          "id": "00-state-p2",
+          "statement": "Expose what the next decision needs",
+          "source_ids": [
+            "source-00-state"
+          ]
+        },
+        {
+          "id": "00-state-p3",
+          "statement": "Preserve the before and after state",
+          "source_ids": [
+            "source-00-state"
+          ]
+        }
+      ],
+      "explanation": [
+        {
+          "id": "00-state-p1",
+          "title": "Separate the circuit from its state",
+          "statement": "Block dimensions and net memberships stay fixed throughout an episode. The board width and height define the available integer anchors. Placements is initially empty and grows as actions succeed.",
+          "source_ids": [
+            "source-00-state"
+          ],
+          "grounding": "src/environment/placement_env.py:42 (PlacementEnv.observation)"
+        },
+        {
+          "id": "00-state-p2",
+          "title": "Expose what the next decision needs",
+          "statement": "The observation includes the circuit, board, placements, current_macro and area_weight. current_macro follows input order in this implementation; the policy chooses its anchor, rather than choosing both macro order and anchor.",
+          "source_ids": [
+            "source-00-state"
+          ],
+          "grounding": "src/environment/placement_env.py:42 (PlacementEnv.observation)"
+        },
+        {
+          "id": "00-state-p3",
+          "title": "Preserve the before and after state",
+          "statement": "Recorded transitions retain placements_before and placements_after. Compare them in the replay: exactly the current macro should be added after a legal step. Coordinates of previously placed macros do not move in this environment.",
+          "source_ids": [
+            "source-00-state"
+          ],
+          "grounding": "src/environment/placement_env.py:42 (PlacementEnv.observation)"
+        }
+      ],
+      "result": {
+        "answer": "A decision uses fixed circuit data together with the current partial layout and the next macro.",
+        "generalization": "A zero coordinate alone cannot distinguish an unplaced macro from one placed at the origin."
+      },
+      "appendix": {
+        "pitfall": "A zero coordinate alone cannot distinguish an unplaced macro from one placed at the origin."
+      },
+      "source_ids": [
+        "source-00-state"
+      ]
+    },
+    {
+      "id": "01-index",
+      "chapter": "01",
+      "question": "Why does i = 0 mean checking the anchor (0, 0)",
+      "dependencies": [
+        "00-state"
+      ],
+      "premise": "A decision uses fixed circuit data together with the current partial layout and the next macro.",
+      "plan": [
+        {
+          "id": "01-index-p1",
+          "statement": "Give each grid anchor one address",
+          "source_ids": [
+            "source-01-index"
+          ]
+        },
+        {
+          "id": "01-index-p2",
+          "statement": "Recover the column and row separately",
+          "source_ids": [
+            "source-01-index"
+          ]
+        },
+        {
+          "id": "01-index-p3",
+          "statement": "Check the proposed rectangle without moving it",
+          "source_ids": [
+            "source-01-index"
+          ]
+        }
+      ],
+      "explanation": [
+        {
+          "id": "01-index-p1",
+          "title": "Give each grid anchor one address",
+          "statement": "The 64 x 64 teaching board has 4096 candidate anchors. i is the zero-based address in row-major order, not a module number, training iteration or coordinate. i = 0 selects the first candidate to inspect for B0.",
+          "source_ids": [
+            "source-01-index"
+          ],
+          "grounding": "integration/visualization/learning_session.py:37 (LearningSession._candidate)"
+        },
+        {
+          "id": "01-index-p2",
+          "title": "Recover the column and row separately",
+          "statement": "x = i % 64 is the remainder after dividing by the row width, so it gives the horizontal column. y = i // 64 counts complete rows using integer division. For i = 0 both are zero; i = 63 gives (63,0), while i = 64 gives (0,1).",
+          "source_ids": [
+            "source-01-index"
+          ],
+          "grounding": "integration/visualization/learning_session.py:37 (LearningSession._candidate)"
+        },
+        {
+          "id": "01-index-p3",
+          "title": "Check the proposed rectangle without moving it",
+          "statement": "The pair (x,y) is the lower-left anchor proposed for the current macro. The checker combines it with B0 width 25 and height 8. At this point the environment still contains no placed rectangle; checking is separate from execution.",
+          "source_ids": [
+            "source-01-index"
+          ],
+          "grounding": "integration/visualization/learning_session.py:37 (LearningSession._candidate)"
+        }
+      ],
+      "result": {
+        "answer": "Row-major decoding turns candidate address i into a proposed lower-left anchor; it does not place the macro.",
+        "generalization": "The fixed first-legal teaching rule is not the learned PPO policy."
+      },
+      "appendix": {
+        "pitfall": "The fixed first-legal teaching rule is not the learned PPO policy."
+      },
+      "source_ids": [
+        "source-01-index"
+      ]
+    },
+    {
+      "id": "01-legal",
+      "chapter": "01",
+      "question": "How do four boundaries and overlap checks produce mask[i]",
+      "dependencies": [
+        "01-index"
+      ],
+      "premise": "Row-major decoding turns candidate address i into a proposed lower-left anchor; it does not place the macro.",
+      "plan": [
+        {
+          "id": "01-legal-p1",
+          "statement": "Check each board edge",
+          "source_ids": [
+            "source-01-legal"
+          ]
+        },
+        {
+          "id": "01-legal-p2",
+          "statement": "Compare positive overlap with every placed macro",
+          "source_ids": [
+            "source-01-legal"
+          ]
+        },
+        {
+          "id": "01-legal-p3",
+          "statement": "Combine checks and continue after rejection",
+          "source_ids": [
+            "source-01-legal"
+          ]
+        }
+      ],
+      "explanation": [
+        {
+          "id": "01-legal-p1",
+          "title": "Check each board edge",
+          "statement": "For B0 at (0,0), x >= 0 means its left edge stays inside the board; y >= 0 checks its bottom edge. x+25 <= 64 checks the right edge at 25; y+8 <= 64 checks the top edge at 8. All four conditions are true.",
+          "source_ids": [
+            "source-01-legal"
+          ],
+          "grounding": "src/environment/placement_env.py:58 (PlacementEnv.inspect_action)"
+        },
+        {
+          "id": "01-legal-p2",
+          "title": "Compare positive overlap with every placed macro",
+          "statement": "Two rectangles overlap only when their x intervals and y intervals both overlap with positive length. Touching edges are legal. B0 has no placed neighbors, so there is no pair that can fail this check. Later macros must pass every pairwise comparison.",
+          "source_ids": [
+            "source-01-legal"
+          ],
+          "grounding": "src/environment/placement_env.py:58 (PlacementEnv.inspect_action)"
+        },
+        {
+          "id": "01-legal-p3",
+          "title": "Combine checks and continue after rejection",
+          "statement": "mask[i] is true only if bounds and all overlap checks pass. The fixed teaching search checks i in increasing order and stops at the first true entry. If false, increment i, decode its x/y, and repeat every check; do not guess a nearby legal position.",
+          "source_ids": [
+            "source-01-legal"
+          ],
+          "grounding": "src/environment/placement_env.py:58 (PlacementEnv.inspect_action)"
+        }
+      ],
+      "result": {
+        "answer": "The mask records a geometric yes/no result for each anchor; the selection rule then chooses among true entries.",
+        "generalization": "A legal mask entry guarantees current geometry, not that the remaining circuit can always finish."
+      },
+      "appendix": {
+        "pitfall": "A legal mask entry guarantees current geometry, not that the remaining circuit can always finish."
+      },
+      "source_ids": [
+        "source-01-legal"
+      ]
+    },
+    {
+      "id": "01-step",
+      "chapter": "01",
+      "question": "What exactly does env.step(action) execute and return",
+      "dependencies": [
+        "01-legal"
+      ],
+      "premise": "The mask records a geometric yes/no result for each anchor; the selection rule then chooses among true entries.",
+      "plan": [
+        {
+          "id": "01-step-p1",
+          "statement": "Execute only the checked anchor",
+          "source_ids": [
+            "source-01-step"
+          ]
+        },
+        {
+          "id": "01-step-p2",
+          "statement": "Explain why an intermediate reward is zero",
+          "source_ids": [
+            "source-01-step"
+          ]
+        },
+        {
+          "id": "01-step-p3",
+          "statement": "Read all five returned values",
+          "source_ids": [
+            "source-01-step"
+          ]
+        }
+      ],
+      "explanation": [
+        {
+          "id": "01-step-p1",
+          "title": "Execute only the checked anchor",
+          "statement": "action is the (x,y) pair passed into the PlacementEnv.step method. The method checks it again, writes the current macro into placements, and clears the step reward to zero before checking termination. An illegal action raises an error rather than silently moving it.",
+          "source_ids": [
+            "source-01-step"
+          ],
+          "grounding": "src/environment/placement_env.py:173 (PlacementEnv.step)"
+        },
+        {
+          "id": "01-step-p2",
+          "title": "Explain why an intermediate reward is zero",
+          "statement": "This environment scores the complete layout at the terminal step. Earlier steps retain inspectable partial Area and HPWL, but return reward 0. Completion returns negative normalized cost; a state with no legal continuation terminates with reward -2.",
+          "source_ids": [
+            "source-01-step"
+          ],
+          "grounding": "src/environment/placement_env.py:173 (PlacementEnv.step)"
+        },
+        {
+          "id": "01-step-p3",
+          "title": "Read all five returned values",
+          "statement": "The result is next_observation, reward, terminated, truncated, info. The observation identifies the next macro; info retains metrics and the reason. truncated is false here because this implementation has no external time-limit cutoff. The policy reads the next observation to close the interaction loop.",
+          "source_ids": [
+            "source-01-step"
+          ],
+          "grounding": "src/environment/placement_env.py:173 (PlacementEnv.step)"
+        }
+      ],
+      "result": {
+        "answer": "step commits one legal placement, determines terminal feedback and returns the state needed for the next decision.",
+        "generalization": "Area is the tight occupied bounding box, not the sum of fixed macro areas."
+      },
+      "appendix": {
+        "pitfall": "Area is the tight occupied bounding box, not the sum of fixed macro areas."
+      },
+      "source_ids": [
+        "source-01-step"
+      ]
+    },
+    {
+      "id": "02-encode",
+      "chapter": "02",
+      "question": "How do sizes, positions and nets become model tensors",
+      "dependencies": [
+        "01-step"
+      ],
+      "premise": "step commits one legal placement, determines terminal feedback and returns the state needed for the next decision.",
+      "plan": [
+        {
+          "id": "02-encode-p1",
+          "statement": "Encode eight features per macro",
+          "source_ids": [
+            "source-02-encode"
+          ]
+        },
+        {
+          "id": "02-encode-p2",
+          "statement": "Keep connectivity in an incidence matrix",
+          "source_ids": [
+            "source-02-encode"
+          ]
+        },
+        {
+          "id": "02-encode-p3",
+          "statement": "Describe each hypothetical action separately",
+          "source_ids": [
+            "source-02-encode"
+          ]
+        }
+      ],
+      "explanation": [
+        {
+          "id": "02-encode-p1",
+          "title": "Encode eight features per macro",
+          "statement": "Each node has width/W, height/H, area/(WH), x/W, y/H, placed flag, current flag and incident-net fraction. The placed flag disambiguates missing coordinates from a real (0,0) placement; the current flag identifies the rectangle receiving the next action.",
+          "source_ids": [
+            "source-02-encode"
+          ],
+          "grounding": "src/ppo/encoding.py:43 (encode_observation)"
+        },
+        {
+          "id": "02-encode-p2",
+          "title": "Keep connectivity in an incidence matrix",
+          "statement": "incidence has one row per net and one column per macro. Entry [m,n] is 1 when net m contains macro n. No future placement coordinates are filled in. Four global features add placed fraction, total macro utilization, board aspect ratio and area weight.",
+          "source_ids": [
+            "source-02-encode"
+          ],
+          "grounding": "src/ppo/encoding.py:43 (encode_observation)"
+        },
+        {
+          "id": "02-encode-p3",
+          "title": "Describe each hypothetical action separately",
+          "statement": "Every anchor has six candidate features: normalized x/y, next bounding-box Area, incremental partial HPWL, and next bounding-box width/height. These hypothetical metrics can be calculated from known sizes, nets and already placed endpoints before actually executing the action.",
+          "source_ids": [
+            "source-02-encode"
+          ],
+          "grounding": "src/ppo/encoding.py:43 (encode_observation)"
+        }
+      ],
+      "result": {
+        "answer": "Node features describe macros, incidence preserves hypernets, and candidate features connect each possible anchor to geometric consequences.",
+        "generalization": "Normalization changes numerical scale; it does not add unknown future positions."
+      },
+      "appendix": {
+        "pitfall": "Normalization changes numerical scale; it does not add unknown future positions."
+      },
+      "source_ids": [
+        "source-02-encode"
+      ]
+    },
+    {
+      "id": "02-heads",
+      "chapter": "02",
+      "question": "How do the shared encoder, actor and critic use these tensors",
+      "dependencies": [
+        "02-encode"
+      ],
+      "premise": "Node features describe macros, incidence preserves hypernets, and candidate features connect each possible anchor to geometric consequences.",
+      "plan": [
+        {
+          "id": "02-heads-p1",
+          "statement": "Pass information through nets",
+          "source_ids": [
+            "source-02-heads"
+          ]
+        },
+        {
+          "id": "02-heads-p2",
+          "statement": "Create a context and action scores",
+          "source_ids": [
+            "source-02-heads"
+          ]
+        },
+        {
+          "id": "02-heads-p3",
+          "statement": "Predict a state value separately",
+          "source_ids": [
+            "source-02-heads"
+          ]
+        }
+      ],
+      "explanation": [
+        {
+          "id": "02-heads-p1",
+          "title": "Pass information through nets",
+          "statement": "A learned layer maps eight node features to 32-dimensional embeddings. The incidence matrix averages embeddings inside each net, then sends the net means back to their incident macros. The message layer combines each macro embedding with its incoming net information.",
+          "source_ids": [
+            "source-02-heads"
+          ],
+          "grounding": "src/ppo/model.py:39 (ActorCritic.encode_context)"
+        },
+        {
+          "id": "02-heads-p2",
+          "title": "Create a context and action scores",
+          "statement": "The encoder pools valid nodes, selects the current macro embedding and appends global features. The actor compares this context with each candidate embedding and adds a candidate bias to produce one logit per anchor. A logit is an unnormalized score, not yet a probability.",
+          "source_ids": [
+            "source-02-heads"
+          ],
+          "grounding": "src/ppo/model.py:39 (ActorCritic.encode_context)"
+        },
+        {
+          "id": "02-heads-p3",
+          "title": "Predict a state value separately",
+          "statement": "The critic receives the shared context and predicts one scalar V(s): expected future return under the policy. It does not output an anchor or a legality verdict. Chapter 02 shows actual features, embeddings, logits, probabilities and V(s) from the selected saved replay.",
+          "source_ids": [
+            "source-02-heads"
+          ],
+          "grounding": "src/ppo/model.py:39 (ActorCritic.encode_context)"
+        }
+      ],
+      "result": {
+        "answer": "The actor scores anchors; the critic estimates return; both learn from a shared geometry-and-net context.",
+        "generalization": "The critic prediction is learned and can differ from the realized terminal reward."
+      },
+      "appendix": {
+        "pitfall": "The critic prediction is learned and can differ from the realized terminal reward."
+      },
+      "source_ids": [
+        "source-02-heads"
+      ]
+    },
+    {
+      "id": "02-mask",
+      "chapter": "02",
+      "question": "How does the learned policy choose a legal action",
+      "dependencies": [
+        "02-heads"
+      ],
+      "premise": "The actor scores anchors; the critic estimates return; both learn from a shared geometry-and-net context.",
+      "plan": [
+        {
+          "id": "02-mask-p1",
+          "statement": "Apply exact geometry before sampling",
+          "source_ids": [
+            "source-02-mask"
+          ]
+        },
+        {
+          "id": "02-mask-p2",
+          "statement": "Separate training sampling from argmax replay",
+          "source_ids": [
+            "source-02-mask"
+          ]
+        },
+        {
+          "id": "02-mask-p3",
+          "statement": "Terminate when the mask is empty",
+          "source_ids": [
+            "source-02-mask"
+          ]
+        }
+      ],
+      "explanation": [
+        {
+          "id": "02-mask-p1",
+          "title": "Apply exact geometry before sampling",
+          "statement": "The environment produces the boolean legal mask. masked_distribution replaces illegal logits with negative infinity. Categorical normalizes the remaining finite scores, giving illegal anchors exactly zero probability. The mask is recomputed after each placement.",
+          "source_ids": [
+            "source-02-mask"
+          ],
+          "grounding": "src/ppo/model.py:9 (masked_distribution)"
+        },
+        {
+          "id": "02-mask-p2",
+          "title": "Separate training sampling from argmax replay",
+          "statement": "Training samples from the masked distribution to explore legal alternatives. Deterministic evaluation selects its largest-probability action. Both decode action a into (a % W, a // W) before calling step. They can produce different layouts from the same checkpoint.",
+          "source_ids": [
+            "source-02-mask"
+          ],
+          "grounding": "src/ppo/model.py:9 (masked_distribution)"
+        },
+        {
+          "id": "02-mask-p3",
+          "title": "Terminate when the mask is empty",
+          "statement": "An all-false mask has no probability distribution. The environment ends that episode with the no_legal_action reason and reward -2; the model helper also rejects an empty legal set. The 192 x 192 probe makes this failure observable rather than hiding incomplete layouts.",
+          "source_ids": [
+            "source-02-mask"
+          ],
+          "grounding": "src/ppo/model.py:9 (masked_distribution)"
+        }
+      ],
+      "result": {
+        "answer": "Geometry determines eligibility, while the learned scores determine relative preference among eligible anchors.",
+        "generalization": "A high probability is a policy preference, not a proof of globally optimal wirelength."
+      },
+      "appendix": {
+        "pitfall": "A high probability is a policy preference, not a proof of globally optimal wirelength."
+      },
+      "source_ids": [
+        "source-02-mask"
+      ]
+    },
+    {
+      "id": "03-rollout",
+      "chapter": "03",
+      "question": "What must one real transition retain for PPO",
+      "dependencies": [
+        "02-mask"
+      ],
+      "premise": "Geometry determines eligibility, while the learned scores determine relative preference among eligible anchors.",
+      "plan": [
+        {
+          "id": "03-rollout-p1",
+          "statement": "Freeze the behavior evidence when sampling",
+          "source_ids": [
+            "source-03-rollout"
+          ]
+        },
+        {
+          "id": "03-rollout-p2",
+          "statement": "Record the actual environment response",
+          "source_ids": [
+            "source-03-rollout"
+          ]
+        },
+        {
+          "id": "03-rollout-p3",
+          "statement": "Keep separate episodes separate",
+          "source_ids": [
+            "source-03-rollout"
+          ]
+        }
+      ],
+      "explanation": [
+        {
+          "id": "03-rollout-p1",
+          "title": "Freeze the behavior evidence when sampling",
+          "statement": "For each active state, the collector stores encoded observation, sampled action, old log probability and old value before executing the action. These values belong to the policy that actually generated the trajectory. Later optimization must not overwrite them.",
+          "source_ids": [
+            "source-03-rollout"
+          ],
+          "grounding": "src/ppo/algorithm.py:36 (collect_episodes)"
+        },
+        {
+          "id": "03-rollout-p2",
+          "title": "Record the actual environment response",
+          "statement": "After step, store reward, termination/boundary flags, current/next macro, circuit and episode identifiers, and placements before/after. Chapter 03 lets you select a specific saved transition and inspect how one rectangle changes the layout.",
+          "source_ids": [
+            "source-03-rollout"
+          ],
+          "grounding": "src/ppo/algorithm.py:36 (collect_episodes)"
+        },
+        {
+          "id": "03-rollout-p3",
+          "title": "Keep separate episodes separate",
+          "statement": "An episode starts from an empty board and ends at completion or failure. When records are concatenated, the boundary flag stops advantage recursion from leaking into the next episode. A saved greedy evaluation replay is not the sampled rollout used for optimization.",
+          "source_ids": [
+            "source-03-rollout"
+          ],
+          "grounding": "src/ppo/algorithm.py:36 (collect_episodes)"
+        }
+      ],
+      "result": {
+        "answer": "A transition links the behavior policy evidence to the exact action, environment feedback and episode boundary.",
+        "generalization": "The selected evaluation action and selected training sample can come from different episodes."
+      },
+      "appendix": {
+        "pitfall": "The selected evaluation action and selected training sample can come from different episodes."
+      },
+      "source_ids": [
+        "source-03-rollout"
+      ]
+    },
+    {
+      "id": "03-gae",
+      "chapter": "03",
+      "question": "How does a terminal reward teach earlier placements",
+      "dependencies": [
+        "03-rollout"
+      ],
+      "premise": "A transition links the behavior policy evidence to the exact action, environment feedback and episode boundary.",
+      "plan": [
+        {
+          "id": "03-gae-p1",
+          "statement": "Compute the temporal-difference residual",
+          "source_ids": [
+            "source-03-gae"
+          ]
+        },
+        {
+          "id": "03-gae-p2",
+          "statement": "Recurse backward within the episode",
+          "source_ids": [
+            "source-03-gae"
+          ]
+        },
+        {
+          "id": "03-gae-p3",
+          "statement": "Normalize only the actor advantages",
+          "source_ids": [
+            "source-03-gae"
+          ]
+        }
+      ],
+      "explanation": [
+        {
+          "id": "03-gae-p1",
+          "title": "Compute the temporal-difference residual",
+          "statement": "For time t, delta_t = reward_t + gamma*V(next_state)*(1-terminated_t) - V(state_t). A true terminal state has no future bootstrap value. With intermediate reward zero, delta still reflects the difference between consecutive value estimates.",
+          "source_ids": [
+            "source-03-gae"
+          ],
+          "grounding": "src/ppo/algorithm.py:24 (generalized_advantages)"
+        },
+        {
+          "id": "03-gae-p2",
+          "title": "Recurse backward within the episode",
+          "statement": "GAE computes A_t = delta_t + gamma*lambda*A_(t+1), stopping at boundaries. Returns are A_t + old V_t. In the larger-input experiments gamma=1 and lambda=1 propagate the complete terminal feedback backward through each retained trajectory.",
+          "source_ids": [
+            "source-03-gae"
+          ],
+          "grounding": "src/ppo/algorithm.py:24 (generalized_advantages)"
+        },
+        {
+          "id": "03-gae-p3",
+          "title": "Normalize only the actor advantages",
+          "statement": "The batch subtracts the raw advantage mean and divides by population standard deviation with a small floor. The critic uses unnormalized returns as targets. Read the raw advantage, batch mean/std and normalized value for the same selected sample in the lab.",
+          "source_ids": [
+            "source-03-gae"
+          ],
+          "grounding": "src/ppo/algorithm.py:24 (generalized_advantages)"
+        }
+      ],
+      "result": {
+        "answer": "Backward advantage recursion connects delayed terminal feedback to earlier actions without crossing episode boundaries.",
+        "generalization": "Positive normalized advantage means better relative to the batch; the raw terminal reward can still be negative."
+      },
+      "appendix": {
+        "pitfall": "Positive normalized advantage means better relative to the batch; the raw terminal reward can still be negative."
+      },
+      "source_ids": [
+        "source-03-gae"
+      ]
+    },
+    {
+      "id": "04-loss",
+      "chapter": "04",
+      "question": "How does PPO compare old and new probabilities",
+      "dependencies": [
+        "03-gae"
+      ],
+      "premise": "Backward advantage recursion connects delayed terminal feedback to earlier actions without crossing episode boundaries.",
+      "plan": [
+        {
+          "id": "04-loss-p1",
+          "statement": "Re-evaluate the same recorded action",
+          "source_ids": [
+            "source-04-loss"
+          ]
+        },
+        {
+          "id": "04-loss-p2",
+          "statement": "Clip the incentive, not the coordinates",
+          "source_ids": [
+            "source-04-loss"
+          ]
+        },
+        {
+          "id": "04-loss-p3",
+          "statement": "Add value fitting and entropy",
+          "source_ids": [
+            "source-04-loss"
+          ]
+        }
+      ],
+      "explanation": [
+        {
+          "id": "04-loss-p1",
+          "title": "Re-evaluate the same recorded action",
+          "statement": "The update feeds the retained observation through the current model and evaluates the log probability of the recorded action. ratio = exp(new_log_prob-old_log_prob) compares that action under new and behavior policies; it does not compare two different anchors.",
+          "source_ids": [
+            "source-04-loss"
+          ],
+          "grounding": "src/ppo/algorithm.py:79 (ppo_loss)"
+        },
+        {
+          "id": "04-loss-p2",
+          "title": "Clip the incentive, not the coordinates",
+          "statement": "The actor minimizes the negative mean of min(ratio*A, clip(ratio,0.8,1.2)*A) when clip=0.2. The minimum depends on the sign of advantage. Clipping limits the surrogate incentive; it does not force the actual ratio to stay within that interval.",
+          "source_ids": [
+            "source-04-loss"
+          ],
+          "grounding": "src/ppo/algorithm.py:79 (ppo_loss)"
+        },
+        {
+          "id": "04-loss-p3",
+          "title": "Add value fitting and entropy",
+          "statement": "The critic loss is half the mean squared error between predicted values and returns. Total loss adds the configured value coefficient and subtracts the entropy coefficient times distribution entropy. The saved first minibatch reports every term and its actual selected sample.",
+          "source_ids": [
+            "source-04-loss"
+          ],
+          "grounding": "src/ppo/algorithm.py:79 (ppo_loss)"
+        }
+      ],
+      "result": {
+        "answer": "PPO optimizes a clipped probability-ratio surrogate together with value prediction and entropy.",
+        "generalization": "The clipping interval is not a hard parameter-distance or probability guarantee."
+      },
+      "appendix": {
+        "pitfall": "The clipping interval is not a hard parameter-distance or probability guarantee."
+      },
+      "source_ids": [
+        "source-04-loss"
+      ]
+    },
+    {
+      "id": "04-adam",
+      "chapter": "04",
+      "question": "What changes during one real optimizer step",
+      "dependencies": [
+        "04-loss"
+      ],
+      "premise": "PPO optimizes a clipped probability-ratio surrogate together with value prediction and entropy.",
+      "plan": [
+        {
+          "id": "04-adam-p1",
+          "statement": "Differentiate the retained minibatch loss",
+          "source_ids": [
+            "source-04-adam"
+          ]
+        },
+        {
+          "id": "04-adam-p2",
+          "statement": "Clip gradients, then let Adam update parameters",
+          "source_ids": [
+            "source-04-adam"
+          ]
+        },
+        {
+          "id": "04-adam-p3",
+          "statement": "Separate a teaching update from official training",
+          "source_ids": [
+            "source-04-adam"
+          ]
+        }
+      ],
+      "explanation": [
+        {
+          "id": "04-adam-p1",
+          "title": "Differentiate the retained minibatch loss",
+          "statement": "zero_grad removes gradients from the previous step. loss.backward computes gradients of the current loss through actor, critic and shared encoder. A finite loss check catches numerical failure before changing parameters.",
+          "source_ids": [
+            "source-04-adam"
+          ],
+          "grounding": "src/ppo/algorithm.py:106 (minibatch_step)"
+        },
+        {
+          "id": "04-adam-p2",
+          "title": "Clip gradients, then let Adam update parameters",
+          "statement": "clip_grad_norm_ limits the combined gradient norm to 0.5 in these runs. Adam then uses its own first/second-moment state to update weights. The teaching record saves norms before/after clipping and re-evaluates the same state/action immediately after this step.",
+          "source_ids": [
+            "source-04-adam"
+          ],
+          "grounding": "src/ppo/algorithm.py:106 (minibatch_step)"
+        },
+        {
+          "id": "04-adam-p3",
+          "title": "Separate a teaching update from official training",
+          "statement": "Each teaching-update-N file loads official checkpoint N, samples separately and performs one isolated update. It saves another model rather than overwriting checkpoint N. The lab explicitly labels this provenance and distinguishes the first Adam step from the full update.",
+          "source_ids": [
+            "source-04-adam"
+          ],
+          "grounding": "src/ppo/algorithm.py:106 (minibatch_step)"
+        }
+      ],
+      "result": {
+        "answer": "Backpropagation produces gradients; clipping bounds their norm; Adam changes weights using retained optimizer state.",
+        "generalization": "Gradient clipping and PPO ratio clipping are different operations on different quantities."
+      },
+      "appendix": {
+        "pitfall": "Gradient clipping and PPO ratio clipping are different operations on different quantities."
+      },
+      "source_ids": [
+        "source-04-adam"
+      ]
+    },
+    {
+      "id": "04-evidence",
+      "chapter": "04",
+      "question": "How do we interpret the completed training evidence",
+      "dependencies": [
+        "04-adam"
+      ],
+      "premise": "Backpropagation produces gradients; clipping bounds their norm; Adam changes weights using retained optimizer state.",
+      "plan": [
+        {
+          "id": "04-evidence-p1",
+          "statement": "Preserve the state needed to resume",
+          "source_ids": [
+            "source-04-evidence"
+          ]
+        },
+        {
+          "id": "04-evidence-p2",
+          "statement": "Keep fixed comparisons and failures visible",
+          "source_ids": [
+            "source-04-evidence"
+          ]
+        },
+        {
+          "id": "04-evidence-p3",
+          "statement": "Read the failed capacity probe as data",
+          "source_ids": [
+            "source-04-evidence"
+          ]
+        }
+      ],
+      "explanation": [
+        {
+          "id": "04-evidence-p1",
+          "title": "Preserve the state needed to resume",
+          "statement": "A checkpoint stores model weights, optimizer state, PPO configuration, metadata and RNG state. --resume restores the same experiment. --initialize-from reuses weights for a new experiment with a fresh optimizer and RNG; this is how the larger circuits were fine-tuned.",
+          "source_ids": [
+            "source-04-evidence"
+          ],
+          "grounding": "src/ppo/algorithm.py:151 (save_checkpoint)"
+        },
+        {
+          "id": "04-evidence-p2",
+          "title": "Keep fixed comparisons and failures visible",
+          "statement": "The 20/50/100-macro runs each keep their own 96/176/256-square board fixed before and after training. Each has 32 sampled evaluations at seed 100000. The 20-macro greedy result regresses from Area/HPWL 5642/1666 to 5796/1831 even while sampled mean reward improves.",
+          "source_ids": [
+            "source-04-evidence"
+          ],
+          "grounding": "src/ppo/algorithm.py:151 (save_checkpoint)"
+        },
+        {
+          "id": "04-evidence-p3",
+          "title": "Read the failed capacity probe as data",
+          "statement": "The 100-macro 192-square probe completed only two updates. Its sampled evaluation finished 0/32 before and after, while one greedy replay was legal. Select that run in the lab to inspect no-legal-action termination. The expanded 256-square run is a separate experiment.",
+          "source_ids": [
+            "source-04-evidence"
+          ],
+          "grounding": "src/ppo/algorithm.py:151 (save_checkpoint)"
+        }
+      ],
+      "result": {
+        "answer": "Saved models and trajectories support replay and fixed-instance comparisons, including regressions and failures.",
+        "generalization": "These fixed synthetic inputs use one training seed; unseen-circuit generalization and ECE-server reproduction are next work."
+      },
+      "appendix": {
+        "pitfall": "These fixed synthetic inputs use one training seed; unseen-circuit generalization and ECE-server reproduction are next work."
+      },
+      "source_ids": [
+        "source-04-evidence"
+      ]
+    },
+    {
+      "id": "05-reuse",
+      "chapter": "05",
+      "question": "Which parts of the received SA-SP can we reuse directly",
+      "dependencies": [
+        "04-evidence"
+      ],
+      "premise": "Saved models and trajectories support replay and fixed-instance comparisons, including regressions and failures.",
+      "plan": [
+        {
+          "id": "05-reuse-p1",
+          "statement": "Retain the received implementation",
+          "source_ids": [
+            "source-05-reuse"
+          ]
+        },
+        {
+          "id": "05-reuse-p2",
+          "statement": "Export actual coordinates and dimensions",
+          "source_ids": [
+            "source-05-reuse"
+          ]
+        },
+        {
+          "id": "05-reuse-p3",
+          "statement": "Separate original results from adapted comparisons",
+          "source_ids": [
+            "source-05-reuse"
+          ]
+        }
+      ],
+      "explanation": [
+        {
+          "id": "05-reuse-p1",
+          "title": "Retain the received implementation",
+          "statement": "seqpair_usc.py remains the supplied Python implementation under cpp/sa_sp, preserving Alarik attribution and original instructions. Its sequence-pair decoder, bounding-box calculations and lower-left HPWL functions are reused rather than reimplemented in C++.",
+          "source_ids": [
+            "source-05-reuse"
+          ],
+          "grounding": "cpp/sa_sp/adapter.py:39 (run_original)"
+        },
+        {
+          "id": "05-reuse-p2",
+          "title": "Export actual coordinates and dimensions",
+          "statement": "The adapter converts the returned x/y/width/height arrays into named placements and infers any rotation by comparing dimensions with the input. Independent scoring checks the exported original initial/final layouts. The unchanged five-macro seed-0 smoke run reproduces Area 880 and HPWL 84.",
+          "source_ids": [
+            "source-05-reuse"
+          ],
+          "grounding": "cpp/sa_sp/adapter.py:39 (run_original)"
+        },
+        {
+          "id": "05-reuse-p3",
+          "title": "Separate original results from adapted comparisons",
+          "statement": "The original solver permits rotation, lacks the PPO hard canvas, and normalizes cost using its initial layout. Its temperature probing also uses a different scale. Original images and smoke results remain provenance records; the aligned solver is explicitly a separate adaptation.",
+          "source_ids": [
+            "source-05-reuse"
+          ],
+          "grounding": "cpp/sa_sp/adapter.py:39 (run_original)"
+        }
+      ],
+      "result": {
+        "answer": "Reuse the original decoder and exported layouts, while labeling the rule changes needed for a shared comparison.",
+        "generalization": "Do not mix an unrestricted rotated original layout with a no-rotation hard-canvas PPO score."
+      },
+      "appendix": {
+        "pitfall": "Do not mix an unrestricted rotated original layout with a no-rotation hard-canvas PPO score."
+      },
+      "source_ids": [
+        "source-05-reuse"
+      ]
+    },
+    {
+      "id": "05-protocol",
+      "chapter": "05",
+      "question": "What makes the first PPO and SA-SP comparison comparable",
+      "dependencies": [
+        "05-reuse"
+      ],
+      "premise": "Reuse the original decoder and exported layouts, while labeling the rule changes needed for a shared comparison.",
+      "plan": [
+        {
+          "id": "05-protocol-p1",
+          "statement": "Give both solvers the same physical rules",
+          "source_ids": [
+            "source-05-protocol"
+          ]
+        },
+        {
+          "id": "05-protocol-p2",
+          "statement": "Use one normalized objective",
+          "source_ids": [
+            "source-05-protocol"
+          ]
+        },
+        {
+          "id": "05-protocol-p3",
+          "statement": "Expose the adapted search and its budget",
+          "source_ids": [
+            "source-05-protocol"
+          ]
+        }
+      ],
+      "explanation": [
+        {
+          "id": "05-protocol-p1",
+          "title": "Give both solvers the same physical rules",
+          "statement": "For each circuit, both use the same actual PPO board, original unrotated dimensions, integer lower-left anchors, legal touching and no positive overlap. The independent validator checks completeness and all pairs; fractional coordinates or rotation are rejected rather than snapped.",
+          "source_ids": [
+            "source-05-protocol"
+          ],
+          "grounding": "integration/evaluation/protocol.py:23 (score_layout)"
+        },
+        {
+          "id": "05-protocol-p2",
+          "title": "Use one normalized objective",
+          "statement": "With alpha=0.5, cost = alpha*Area/(W*H) + (1-alpha)*HPWL/max(1,M*(W+H)). Area is the tight occupied bounding box and M is the number of nets. A complete legal layout has reward=-cost; failed/incomplete output has no valid comparison cost and reward -2.",
+          "source_ids": [
+            "source-05-protocol"
+          ],
+          "grounding": "integration/evaluation/protocol.py:23 (score_layout)"
+        },
+        {
+          "id": "05-protocol-p3",
+          "title": "Expose the adapted search and its budget",
+          "statement": "Aligned SA starts with a height-sorted first-fit shelf sequence pair, swaps entries in either sequence, rejects out-of-board proposals, and probes temperature in normalized-cost units. It uses 180 stages, cooling 0.95 and max(20*N,200) moves per stage, independently for seeds 0/1/2.",
+          "source_ids": [
+            "source-05-protocol"
+          ],
+          "grounding": "integration/evaluation/protocol.py:23 (score_layout)"
+        }
+      ],
+      "result": {
+        "answer": "Shared geometry and scoring align quality measurements; explicit budgets and timings reveal the different computational procedures.",
+        "generalization": "Matching rules is not an equal-compute-budget experiment; offline PPO training is reported separately."
+      },
+      "appendix": {
+        "pitfall": "Matching rules is not an equal-compute-budget experiment; offline PPO training is reported separately."
+      },
+      "source_ids": [
+        "source-05-protocol"
+      ]
+    },
+    {
+      "id": "05-results",
+      "chapter": "05",
+      "question": "How should we read quality, runtime and the next handoff",
+      "dependencies": [
+        "05-protocol"
+      ],
+      "premise": "Shared geometry and scoring align quality measurements; explicit budgets and timings reveal the different computational procedures.",
+      "plan": [
+        {
+          "id": "05-results-p1",
+          "statement": "Keep the actual trial identities",
+          "source_ids": [
+            "source-05-results"
+          ]
+        },
+        {
+          "id": "05-results-p2",
+          "statement": "Read legal completion before conditional means",
+          "source_ids": [
+            "source-05-results"
+          ]
+        },
+        {
+          "id": "05-results-p3",
+          "statement": "Inspect the trace and prepare the review",
+          "source_ids": [
+            "source-05-results"
+          ]
+        }
+      ],
+      "explanation": [
+        {
+          "id": "05-results-p1",
+          "title": "Keep the actual trial identities",
+          "statement": "Each circuit has one frozen-checkpoint argmax run, three sampled PPO inference seeds and three aligned SA seeds. All PPO checkpoints come from training seed 0. Three inference seeds explore action randomness; they are not three independently trained policies.",
+          "source_ids": [
+            "source-05-results"
+          ],
+          "grounding": "src/experiments/compare.py:75 (aggregate)"
+        },
+        {
+          "id": "05-results-p2",
+          "title": "Read legal completion before conditional means",
+          "statement": "The table reports legal/total first, then Area, HPWL and cost means over complete legal outputs, with sample standard deviation when at least two exist. Runtime reports measured wall and process CPU time; model loading, warm-up and offline training are separated in the report.",
+          "source_ids": [
+            "source-05-results"
+          ],
+          "grounding": "src/experiments/compare.py:75 (aggregate)"
+        },
+        {
+          "id": "05-results-p3",
+          "title": "Inspect the trace and prepare the review",
+          "statement": "The embedded comparison shows actual same-scale layouts, per-net scores, PPO steps, SA candidate acceptance and best-cost history. SA retains the first 24 proposals, each new best and the final proposal; gaps are explicit. Akira should review decoder/export and the shared protocol, then implement C++ scoring parity against these fixtures.",
+          "source_ids": [
+            "source-05-results"
+          ],
+          "grounding": "src/experiments/compare.py:75 (aggregate)"
+        }
+      ],
+      "result": {
+        "answer": "Use the recorded quality/runtime trade-off and exported placements to review the baseline and agree the next interface work.",
+        "generalization": "The comparison uses the supplied synthetic inputs; formal course benchmarks and multi-training-seed evaluation remain pending."
+      },
+      "appendix": {
+        "pitfall": "The comparison uses the supplied synthetic inputs; formal course benchmarks and multi-training-seed evaluation remain pending."
+      },
+      "source_ids": [
+        "source-05-results"
+      ]
+    }
+  ]
+}
