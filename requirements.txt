@@ -1,0 +1,6 @@
+# PPO uses PyTorch; the parser, environment and learning server use the standard library.
+torch==2.6.0
+# Export the proposal's training curves and labeled floorplans.
+matplotlib==3.10.9
+# The supplied SA-SP decoder and comparison adapter use NumPy directly.
+numpy==2.4.4

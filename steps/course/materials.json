@@ -1,0 +1,116 @@
+{
+  "materials": [
+    {
+      "id": "source-00-parse",
+      "path": "src/data/parse_blknet.py",
+      "symbol": "load_circuit",
+      "start": 8,
+      "end": 59
+    },
+    {
+      "id": "source-00-state",
+      "path": "src/environment/placement_env.py",
+      "symbol": "PlacementEnv.observation",
+      "start": 42,
+      "end": 50
+    },
+    {
+      "id": "source-01-index",
+      "path": "integration/visualization/learning_session.py",
+      "symbol": "LearningSession._candidate",
+      "start": 37,
+      "end": 48
+    },
+    {
+      "id": "source-01-legal",
+      "path": "src/environment/placement_env.py",
+      "symbol": "PlacementEnv.inspect_action",
+      "start": 58,
+      "end": 86
+    },
+    {
+      "id": "source-01-step",
+      "path": "src/environment/placement_env.py",
+      "symbol": "PlacementEnv.step",
+      "start": 173,
+      "end": 182
+    },
+    {
+      "id": "source-02-encode",
+      "path": "src/ppo/encoding.py",
+      "symbol": "encode_observation",
+      "start": 43,
+      "end": 64
+    },
+    {
+      "id": "source-02-heads",
+      "path": "src/ppo/model.py",
+      "symbol": "ActorCritic.encode_context",
+      "start": 39,
+      "end": 51
+    },
+    {
+      "id": "source-02-mask",
+      "path": "src/ppo/model.py",
+      "symbol": "masked_distribution",
+      "start": 9,
+      "end": 16
+    },
+    {
+      "id": "source-03-rollout",
+      "path": "src/ppo/algorithm.py",
+      "symbol": "collect_episodes",
+      "start": 36,
+      "end": 57
+    },
+    {
+      "id": "source-03-gae",
+      "path": "src/ppo/algorithm.py",
+      "symbol": "generalized_advantages",
+      "start": 24,
+      "end": 32
+    },
+    {
+      "id": "source-04-loss",
+      "path": "src/ppo/algorithm.py",
+      "symbol": "ppo_loss",
+      "start": 79,
+      "end": 89
+    },
+    {
+      "id": "source-04-adam",
+      "path": "src/ppo/algorithm.py",
+      "symbol": "minibatch_step",
+      "start": 106,
+      "end": 128
+    },
+    {
+      "id": "source-04-evidence",
+      "path": "src/ppo/algorithm.py",
+      "symbol": "save_checkpoint",
+      "start": 151,
+      "end": 157
+    },
+    {
+      "id": "source-05-reuse",
+      "path": "cpp/sa_sp/adapter.py",
+      "symbol": "run_original",
+      "start": 39,
+      "end": 53
+    },
+    {
+      "id": "source-05-protocol",
+      "path": "integration/evaluation/protocol.py",
+      "symbol": "score_layout",
+      "start": 23,
+      "end": 35
+    },
+    {
+      "id": "source-05-results",
+      "path": "src/experiments/compare.py",
+      "symbol": "aggregate",
+      "start": 75,
+      "end": 89
+    }
+  ]
+}

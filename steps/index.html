@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<title>EE680 / From circuit input to PPO</title>
+<link href="learning.css" rel="stylesheet"/>
+<script defer="" src="01-placement/lesson.js"></script>
+<script defer="" src="02-policy/lesson.js"></script>
+<script defer="" src="03-rollout/lesson.js"></script>
+<script defer="" src="04-ppo-update/lesson.js"></script>
+<script defer="" src="ppo.js"></script>
+<script defer="" src="learning.js"></script>
+</head>
+<body>
+<header class="masthead">
+<div class="workspace-brand"><span class="brand-name">EE680</span><span aria-hidden="true" class="brand-divider"></span><div><h1>Floorplanning Lab</h1><p id="connection-status" role="status">Loading the circuit and saved progress</p></div></div>
+<label class="theme-control">Theme<select id="theme"><option value="auto">System</option><option value="light">Light</option><option value="dark">Dark</option></select></label>
+</header>
+<nav aria-label="Switch reading panel" class="pane-tabs">
+<a class="course-entry" href="reading.html">Question-led course</a>
+<button data-pane="directory" type="button">Contents</button><button data-pane="source" type="button">Input and source</button><button aria-pressed="true" data-pane="lesson" type="button">Interactive lab</button><button data-pane="notes" type="button">Terms and notes</button>
+</nav>
+<div class="reader-shell">
+<aside class="directory reading-pane" data-reading-pane="directory">
+<h2>Where are we in the learning sequence</h2>
+<nav aria-label="Learning steps" class="chapter-list">
+<button data-chapter="00" type="button">00 / How does a circuit become data<span>Actual circuit parser</span></button>
+<button aria-current="page" data-chapter="01" type="button">01 / How is a legal position found<span>Check and execute individual actions</span></button>
+<button data-chapter="02" type="button">02 / How does the network choose an action<span>Actual tensors and action probabilities</span></button>
+<button data-chapter="03" type="button">03 / How are training samples collected<span>Actual PPO rollouts</span></button>
+<button data-chapter="04" type="button">04 / How does PPO update the network<span>Losses, parameter changes and curves</span></button>
+<button data-chapter="05" type="button">05 / How does PPO compare with SA-SP<span>Shared evaluation and exported layouts</span></button>
+</nav>
+<h3 id="phase-heading">How far has this action progressed</h3>
+<ol class="phase-list" id="phase-list"></ol>
+<p class="small">Keep explanations in numbered steps. Lucas and Alarik retain source ownership in their agreed directories.</p>
+<a href="README.md">Read the step guide and run commands</a>
+</aside>
+<div class="inspector">
+<nav aria-label="Switch reference panel" class="inspector-tabs"><button aria-pressed="true" data-inspector="source" type="button">Input and source</button><button aria-pressed="false" data-inspector="notes" type="button">Terms and notes</button></nav>
+<aside class="source reading-pane" data-reading-pane="source">
+<h2>What information does this circuit provide</h2>
+<p id="input-name"></p>
+<h3>What are the macro dimensions</h3><div id="blocks"></div>
+<h3>Which macros belong to each net</h3><div id="nets"></div>
+<details><summary>Inspect the original input</summary><pre id="raw-input"></pre></details>
+<h3>Which actual source definition explains this step</h3>
+<label for="code-file">Choose source</label><select id="code-file"></select>
+<p class="small" id="code-context"></p><a id="code-link" target="_blank">Open this complete source file</a>
+<pre class="code-source" id="code-source"></pre>
+</aside>
+<aside class="notes reading-pane" data-reading-pane="notes">
+<h2>How should these terms be understood</h2>
+<details><summary>Candidate positions and action masks</summary><p>A candidate proposes a lower-left coordinate (x,y) for the current macro. Mask entry i describes whether it may execute, with i=y*width+x. Overlap or boundary failure makes it false; every required check must pass for true.</p></details>
+<details><summary>Environment and policy responsibilities</summary><p>The environment enforces physical constraints and returns feedback. Chapter 01 validates it using the first legal position. Chapters 02-04 use an actor/critic, recorded samples and real PPO updates. Their trajectories are stored separately.</p></details>
+<details><summary>Why is touching allowed while overlap is rejected</summary><p>Positive-area overlap requires positive-length intersections in both x and y. If B1 starts at x=25 while B0 ends at 25, the strict comparison 25&lt;25 is false. Their edges touch without overlap.</p></details>
+<details><summary>Why is intermediate HPWL only partial</summary><p>A net may still have unplaced endpoints. The environment computes spans using currently placed endpoints; complete circuit HPWL is available after placement finishes. Endpoints use lower-left corners in both shared scoring and the received SA-SP implementation.</p></details>
+<details><summary>How does this connect to PPO training</summary><p>The actor produces action probabilities, masks illegal choices and samples a legal action. The critic estimates future return. Actual feedback is retained in a rollout, used to compute advantages and update parameters, and the updated policy supplies later decisions.</p></details>
+<h2>Record your understanding</h2>
+<label for="note">Notes for this chapter</label><textarea id="note" rows="7"></textarea><p class="small" id="note-status" role="status"></p>
+<h3>What has actually been implemented</h3><p>The repository contains parsing, geometry checks, fixed-policy demonstrations, actor/critic inference, PPO sampling and parameter updates. Chapters 02-04 display saved experimental data; refresh while an experiment is running to read new records.</p>
+</aside>
+</div>
+<main class="lesson reading-pane" data-reading-pane="lesson">
+<div class="lesson-bar"><span>Learning workspace</span><span id="lesson-context">Python environment / individual checks</span></div>
+<section hidden="" id="chapter-00">
+<p class="eyebrow">00 / INPUT</p><h2>How does a circuit file become usable environment data</h2>
+<p>The parser reads BLOCKS, preserves macro names as strings and converts dimensions to floating-point numbers. It then reads NETS and verifies every endpoint refers to a defined macro. The actual parsed result appears below.</p>
+<pre id="parsed-input"></pre>
+<p>Coordinates have not been assigned. A net specifies connectivity; HPWL also requires placed endpoint positions.</p>
+<h3>What must the environment add next</h3><p>The environment adds canvas dimensions, placed coordinates, the current macro and remaining macros. It uses that state to validate candidates, build a legal mask and produce action feedback.</p>
+<button data-open-chapter="01" type="button">Open chapter 01 and inspect legal placement</button>
+</section>
+<section id="chapter-01">
+<p class="eyebrow">01 / PLACEMENT</p><h2>After an illegal candidate, how is the next position found</h2>
+<p class="lesson-lead">Chapter 01 validates the environment with a fixed row scan. A learned policy does not select these positions, and its completed layout is not a PPO initial state. Read variables, checks, execution and feedback separately.</p>
+<details class="search-rule"><summary>What is the current search rule</summary><p>Keep y fixed and scan x from zero to the right. After a row ends, increment y and reset x. The environment establishes legality; the policy chooses the first passing anchor. Area and HPWL do not determine this fixed selection.</p></details>
+<div class="controls primary-controls">
+<button class="primary" id="advance" type="button">Unfold the next explanation</button>
+<button id="play" type="button">Play individual explanations</button>
+<label>Playback speed<select id="speed"><option value="800">0.8 seconds per explanation</option><option value="200">0.2 seconds per explanation</option></select></label>
+</div>
+<details class="secondary-actions"><summary>Choose search granularity or restart</summary><div class="controls secondary-controls">
+<button id="candidate" type="button">Finish this candidate's checks</button>
+<button id="choose" type="button">Search to the first legal position</button>
+<button id="module" type="button">Complete this macro and retain its records</button>
+<button id="reset" type="button">Restart with an empty canvas</button>
+</div>
+<p class="small">The main action unfolds one short explanation at a time before advancing the environment. Batch controls skip intermediate reading; all actual candidate checks remain available.</p>
+</details>
+<div hidden="" id="operation-error" role="alert"></div>
+<div class="execution-grid">
+<div class="decision-pane">
+<article aria-live="polite" class="current-detail"><p class="eyebrow" id="stage-caption"></p><h3 id="stage-title"></h3><div class="detail-toolbar"><button id="detail-prev" type="button">Previous explanation</button><span id="detail-progress"></span></div><div id="stage-explanation"></div></article>
+<details><summary>Which fields are in the current observation</summary><pre id="observation-json"></pre></details>
+</div>
+<div class="canvas-pane">
+<div class="board-heading"><h3>What changed on the canvas</h3><span id="board-status"></span></div>
+<svg aria-label="Actual placement canvas and current candidate rectangle" id="board" role="img"></svg>
+<p class="small" id="board-focus"></p>
+<p class="small legend">Solid rectangles are placed macros; a dashed rectangle is the candidate. Dots mark lower-left endpoints. This demonstration uses a 64-by-64 canvas without rotation.</p>
+<div class="metric-row" id="metrics"></div>
+</div>
+</div>
+<details id="score-details"><summary>How are Area, each net and reward calculated</summary><div id="score-calculation"></div></details>
+<h3>Which candidate coordinates were actually checked</h3>
+<p id="attempt-summary"></p>
+<div class="table-wrap"><table><thead><tr><th>Index / coordinate</th><th>Actual result</th><th>Inspect reasoning</th></tr></thead><tbody id="attempts"></tbody></table></div>
+<div class="controls"><button id="previous-page" type="button">Previous candidates</button><span id="attempt-page"></span><button id="next-page" type="button">Next candidates</button></div>
+<section hidden="" id="attempt-inspection"><h3>Why did this candidate pass or fail</h3><div id="attempt-detail"></div><button id="close-inspection" type="button">Return to the current check</button></section>
+<details><summary>Inspect an earlier macro's candidate checks</summary><div class="controls"><label>Macro<select id="history-module"></select></label><label>Candidate index<input id="history-index" min="0" step="1" type="number" value="0"/></label><button id="history-show" type="button">Inspect that recorded check</button></div></details>
+<h3>What sample remains after executing an action</h3><div id="transition-summary"></div>
+<details><summary>Inspect actual s, action, reward and s_next</summary><pre id="transition-json"></pre></details>
+<details><summary>Inspect recent events and the complete check history</summary><ol id="events"></ol><a href="/api/events" target="_blank">Open all actual event records</a></details>
+</section>
+<section hidden="" id="chapter-ppo">
+<p class="eyebrow" id="ppo-number"></p><h2 id="ppo-title"></h2>
+<p>Read 02 -&gt; 03 -&gt; 04. Each explanation connects actual values and source. Evaluation replay, sampled training data and isolated teaching updates have separate provenance. Failed episodes retain their incomplete layouts.</p>
+<p id="ppo-status" role="status">Loading saved PPO records</p>
+<div class="controls primary-controls"><button id="ppo-refresh" type="button">Refresh experiment records</button><label>Experiment<select id="ppo-run"></select></label><label>Circuit<select id="ppo-circuit"></select></label><label>Saved replay<select id="ppo-checkpoint"><option value="latest">Latest saved evaluation</option></select></label></div>
+<p hidden="" id="ppo-error" role="alert"></p>
+<article class="current-detail"><div class="detail-toolbar"><button id="ppo-prev" type="button">Previous explanation</button><span id="ppo-explanation-progress"></span><button id="ppo-next" type="button">Next explanation</button></div><h3 id="ppo-explanation-title"></h3><p id="ppo-explanation"></p><a id="ppo-source-link" target="_blank">Open the actual source for this explanation</a><pre id="ppo-code"></pre></article>
+<article class="current-detail" id="ppo-numeric-section"><h3>How do the actual numbers work in this explanation</h3><p id="ppo-numeric-context"></p><div id="ppo-numeric-explanation"></div></article>
+<div id="ppo-record-panels"><div class="metric-row" id="ppo-metrics"></div>
+<section hidden="" id="ppo-evaluation-section"><h3>How do sampled evaluations before and after this experiment compare</h3><p>Each episode starts empty. Counts are explicit. Mean Area and HPWL include complete legal layouts; failures remain in completion rates. Selecting another replay checkpoint does not change the experiment's before/after comparison.</p><p class="small" id="ppo-evaluation-origin"></p><div class="table-wrap" id="ppo-evaluation"></div></section>
+<div class="execution-grid"><div class="decision-pane">
+<h3>What did the model see for this decision</h3><p id="ppo-features"></p><div class="table-wrap" id="ppo-nodes"></div>
+<details><summary>How does each net encode macro membership</summary><pre id="ppo-incidence"></pre></details>
+<h3>Which legal actions received higher probabilities</h3><div class="table-wrap" id="ppo-actions"></div>
+</div><div class="canvas-pane"><h3>How does the saved policy place macros sequentially</h3><label class="ppo-toggle"><input id="ppo-show-mask" type="checkbox"/>Show legal anchors for the current macro</label><label class="ppo-toggle"><input id="ppo-focus" type="checkbox"/>Zoom around the current macro</label><svg aria-label="Actual PPO layout and net connections" id="ppo-board" role="img"></svg>
+<label>Number of executed actions<input id="ppo-step" min="0" step="1" type="range" value="0"/></label><p id="ppo-step-caption"></p>
+<p class="small">Nets connect lower-left endpoints, showing every endpoint pair in a multi-macro net. The dashed rectangle is the policy's next proposed action.</p>
+</div></div>
+<h3>How do training returns and legal completion rates change</h3><svg aria-label="Actual mean return and completion rate by PPO update" id="ppo-curve" role="img"></svg><p id="ppo-curve-caption"></p>
+<details hidden="" id="ppo-figure-section"><summary>What do this experiment's curves and final layouts show</summary><p>Training curves and final layouts belong to the selected experiment. The 5/10-macro run also includes the predeclared three-seed, three-weight ablation. Individual training runs use one seed; ablation shading is sample standard deviation across seeds. Each before/after comparison keeps its canvas fixed.</p><div id="ppo-figures"></div><a href="/docs/ppo-first-run.md" target="_blank">Read the 5/10-macro conditions and results</a> · <a href="/docs/ppo-scaled-training.md" target="_blank">Read the 20/50/100-macro conditions and results</a></details>
+<h3>Which actual values were saved in the latest rollout</h3><p id="ppo-rollout-caption"></p><div class="table-wrap" id="ppo-rollout"></div>
+<article id="ppo-sample-section"><h3>Follow one actual sample from input to feedback</h3><p id="ppo-sample-origin"></p><label>Select an actual training sample<select id="ppo-sample"></select></label><div class="execution-grid"><div><pre id="ppo-sample-math"></pre><p id="ppo-update-example"></p></div><div class="canvas-pane"><svg aria-label="One actual training sample before and after execution" id="ppo-sample-board" role="img"></svg><p id="ppo-sample-caption"></p></div></div></article>
+<details><summary>Inspect this experiment's parameters and original records</summary><pre id="ppo-config"></pre><a href="/api/ppo" id="ppo-record-link" target="_blank">Open the selected experiment and checkpoint JSON</a></details>
+<details class="ppo-recall"><summary>How can you test your understanding without notes</summary><p>First explain state -&gt; encoding -&gt; actor/critic -&gt; mask -&gt; action -&gt; env.step -&gt; reward -&gt; rollout -&gt; GAE/return -&gt; PPO loss -&gt; backward -&gt; Adam -&gt; changed probabilities. Answer each question before opening its explanation.</p><details><summary>How are unplaced zero coordinates distinguished from placement at the origin</summary><p>The placed flag differs; current identifies the macro receiving a decision. Coordinates alone do not distinguish these cases.</p></details><details><summary>What coordinate corresponds to i=W</summary><p>x=i%W=0 and y=i//W=1: the first anchor of the next row. Geometry checks still determine whether the rectangle fits.</p></details><details><summary>Why stop instead of sampling when every action is illegal</summary><p>There is no executable action. The environment records failure, returns -2 and terminates. masked_distribution also rejects an all-false mask.</p></details><details><summary>At termination, with reward=-2 and V=-0.5, what is delta</summary><p>Hand example: terminal bootstrap is zero, so delta=-2-(-0.5)=-1.5. Carry across the episode boundary is zero and return=-2.</p></details><details><summary>With old p=0.2, new p=0.3, A=2 and epsilon=0.2, what is policy loss</summary><p>Hand example: ratio=1.5, objectives are 3 and 2.4. Negating their minimum gives -2.4. With A=-2, the objectives are -3 and -2.4 and the loss is 3.</p></details><details><summary>Have parameter values changed immediately after backward</summary><p>backward calculates gradients. optimizer.step applies parameter changes after gradient clipping. Gradient clipping differs from clipping PPO's probability-ratio objective.</p></details><details><summary>Why can sampled evaluation fail after one successful argmax layout</summary><p>Different action-selection procedures create different trajectories. The current mask enforces single-step legality, while later macros can still be blocked. Deterministic and repeated sampled completion are therefore recorded separately.</p></details><details><summary>How do initialize-from and resume differ when scaling inputs</summary><p>initialize-from reuses weights with a fresh optimizer and update count. resume restores optimizer, RNG and progress for continuation with the same canvas and reward convention.</p></details></details>
+</div>
+</section>
+<section hidden="" id="chapter-future"><p class="eyebrow" id="future-number"></p><h2 id="future-title"></h2><div id="future-body"></div></section>
+</main>
+</div>
+<noscript>Enable JavaScript. Run python steps/serve.py from the repository root and open the printed local URL.</noscript>
+</body>
+</html>

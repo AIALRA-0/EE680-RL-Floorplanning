@@ -1,0 +1,24 @@
+{
+  "runs": [
+    {
+      "directory": "steps/evidence/ppo-5-10-seed0",
+      "label": "Shared 5/10-macro training"
+    },
+    {
+      "directory": "steps/evidence/ppo-scale-20261019/case-0-macros-20",
+      "label": "20 macros / 96 x 96"
+    },
+    {
+      "directory": "steps/evidence/ppo-scale-20261019/case-1-macros-50",
+      "label": "50 macros / 176 x 176"
+    },
+    {
+      "directory": "steps/evidence/ppo-scale-20261019/case-2-macros-100",
+      "label": "100 macros / 256 x 256"
+    },
+    {
+      "directory": "steps/evidence/ppo-scale-probe-100",
+      "label": "100 macros / failed 192 x 192 probe"
+    }
+  ]
+}

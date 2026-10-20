@@ -1,0 +1,506 @@
+{
+  "chapters": [
+    {
+      "id": "00",
+      "title": "From text to circuit state",
+      "question_ids": [
+        "00-parse",
+        "00-state"
+      ],
+      "bridge": "Start with the actual supplied circuit file.",
+      "media": {
+        "type": "iframe",
+        "src": "/steps/index.html?chapter=00",
+        "reading_guide": "Read the three steps, then inspect the corresponding actual record in the lab. Replay sliders inspect saved decisions without retraining. Chapter 01 execution buttons advance its own teaching environment.",
+        "components": [
+          {
+            "label": "A",
+            "text": "Questions, step explanations and source code"
+          },
+          {
+            "label": "B",
+            "text": "Layouts, connectivity, legal candidates and values"
+          },
+          {
+            "label": "C",
+            "text": "Actual records, replay controls and local notes"
+          }
+        ],
+        "takeaway": "A decision uses fixed circuit data together with the current partial layout and the next macro."
+      },
+      "quiz": [
+        {
+          "id": "00-quiz-0",
+          "prompt": "What does a net-count line specify",
+          "options": [
+            "How many net records follow",
+            "How many endpoints every net has",
+            "The number of placed macros"
+          ],
+          "correct": 0,
+          "rationale": "How many net records follow",
+          "source_question": "00-parse"
+        },
+        {
+          "id": "00-quiz-1",
+          "prompt": "What does float(\"5\") return",
+          "options": [
+            "A block name",
+            "Numeric dimension 5.0",
+            "A placement action"
+          ],
+          "correct": 1,
+          "rationale": "Numeric dimension 5.0",
+          "source_question": "00-parse"
+        },
+        {
+          "id": "00-quiz-2",
+          "prompt": "Which input must be rejected",
+          "options": [
+            "A net naming four known blocks",
+            "A positive noninteger dimension",
+            "A net naming only one endpoint"
+          ],
+          "correct": 2,
+          "rationale": "A net naming only one endpoint",
+          "source_question": "00-parse"
+        },
+        {
+          "id": "00-quiz-3",
+          "prompt": "Which item changes after step",
+          "options": [
+            "Placements",
+            "Original block dimensions",
+            "Net memberships"
+          ],
+          "correct": 0,
+          "rationale": "Placements",
+          "source_question": "00-state"
+        }
+      ],
+      "short_answer": {
+        "prompt": "Explain the causal steps in this chapter in your own words and cite one actual lab record.",
+        "expected": "A decision uses fixed circuit data together with the current partial layout and the next macro."
+      }
+    },
+    {
+      "id": "01",
+      "title": "Inspect every legal placement check",
+      "question_ids": [
+        "01-index",
+        "01-legal",
+        "01-step"
+      ],
+      "bridge": "A decision uses fixed circuit data together with the current partial layout and the next macro.",
+      "media": {
+        "type": "iframe",
+        "src": "/steps/index.html?chapter=01",
+        "reading_guide": "Read the three steps, then inspect the corresponding actual record in the lab. Replay sliders inspect saved decisions without retraining. Chapter 01 execution buttons advance its own teaching environment.",
+        "components": [
+          {
+            "label": "A",
+            "text": "Questions, step explanations and source code"
+          },
+          {
+            "label": "B",
+            "text": "Layouts, connectivity, legal candidates and values"
+          },
+          {
+            "label": "C",
+            "text": "Actual records, replay controls and local notes"
+          }
+        ],
+        "takeaway": "step commits one legal placement, determines terminal feedback and returns the state needed for the next decision."
+      },
+      "quiz": [
+        {
+          "id": "01-quiz-0",
+          "prompt": "What anchor does i=64 decode to on width 64",
+          "options": [
+            "(0,1)",
+            "(64,0)",
+            "(1,0)"
+          ],
+          "correct": 0,
+          "rationale": "(0,1)",
+          "source_question": "01-index"
+        },
+        {
+          "id": "01-quiz-1",
+          "prompt": "When do two rectangles overlap",
+          "options": [
+            "Their edges touch",
+            "Both axes have positive overlap",
+            "Only their x intervals overlap"
+          ],
+          "correct": 1,
+          "rationale": "Both axes have positive overlap",
+          "source_question": "01-legal"
+        },
+        {
+          "id": "01-quiz-2",
+          "prompt": "What does a true mask entry establish",
+          "options": [
+            "All remaining macros will fit",
+            "The anchor is globally optimal",
+            "This anchor passes current geometric checks"
+          ],
+          "correct": 2,
+          "rationale": "This anchor passes current geometric checks",
+          "source_question": "01-legal"
+        },
+        {
+          "id": "01-quiz-3",
+          "prompt": "Why can a nonterminal reward be zero",
+          "options": [
+            "This environment chooses terminal scoring",
+            "No metrics were computed",
+            "The action had no effect"
+          ],
+          "correct": 0,
+          "rationale": "This environment chooses terminal scoring",
+          "source_question": "01-step"
+        }
+      ],
+      "short_answer": {
+        "prompt": "Explain the causal steps in this chapter in your own words and cite one actual lab record.",
+        "expected": "step commits one legal placement, determines terminal feedback and returns the state needed for the next decision."
+      }
+    },
+    {
+      "id": "02",
+      "title": "Encode the state and choose an action",
+      "question_ids": [
+        "02-encode",
+        "02-heads",
+        "02-mask"
+      ],
+      "bridge": "step commits one legal placement, determines terminal feedback and returns the state needed for the next decision.",
+      "media": {
+        "type": "iframe",
+        "src": "/steps/index.html?chapter=02",
+        "reading_guide": "Read the three steps, then inspect the corresponding actual record in the lab. Replay sliders inspect saved decisions without retraining. Chapter 01 execution buttons advance its own teaching environment.",
+        "components": [
+          {
+            "label": "A",
+            "text": "Questions, step explanations and source code"
+          },
+          {
+            "label": "B",
+            "text": "Layouts, connectivity, legal candidates and values"
+          },
+          {
+            "label": "C",
+            "text": "Actual records, replay controls and local notes"
+          }
+        ],
+        "takeaway": "Geometry determines eligibility, while the learned scores determine relative preference among eligible anchors."
+      },
+      "quiz": [
+        {
+          "id": "02-quiz-0",
+          "prompt": "Why retain a placed flag",
+          "options": [
+            "To distinguish missing coordinates from a real origin placement",
+            "To replace the net matrix",
+            "To choose the canvas"
+          ],
+          "correct": 0,
+          "rationale": "To distinguish missing coordinates from a real origin placement",
+          "source_question": "02-encode"
+        },
+        {
+          "id": "02-quiz-1",
+          "prompt": "What does one incidence row describe",
+          "options": [
+            "One candidate probability",
+            "Membership of one net",
+            "One optimizer state"
+          ],
+          "correct": 1,
+          "rationale": "Membership of one net",
+          "source_question": "02-encode"
+        },
+        {
+          "id": "02-quiz-2",
+          "prompt": "What does the critic output",
+          "options": [
+            "A legal mask",
+            "A selected anchor",
+            "One estimated future return"
+          ],
+          "correct": 2,
+          "rationale": "One estimated future return",
+          "source_question": "02-heads"
+        },
+        {
+          "id": "02-quiz-3",
+          "prompt": "How is an illegal anchor excluded",
+          "options": [
+            "Set its logit to negative infinity before Categorical",
+            "Give it a small positive bonus",
+            "Round the sampled anchor afterward"
+          ],
+          "correct": 0,
+          "rationale": "Set its logit to negative infinity before Categorical",
+          "source_question": "02-mask"
+        }
+      ],
+      "short_answer": {
+        "prompt": "Explain the causal steps in this chapter in your own words and cite one actual lab record.",
+        "expected": "Geometry determines eligibility, while the learned scores determine relative preference among eligible anchors."
+      }
+    },
+    {
+      "id": "03",
+      "title": "Turn interaction into training data",
+      "question_ids": [
+        "03-rollout",
+        "03-gae"
+      ],
+      "bridge": "Geometry determines eligibility, while the learned scores determine relative preference among eligible anchors.",
+      "media": {
+        "type": "iframe",
+        "src": "/steps/index.html?chapter=03",
+        "reading_guide": "Read the three steps, then inspect the corresponding actual record in the lab. Replay sliders inspect saved decisions without retraining. Chapter 01 execution buttons advance its own teaching environment.",
+        "components": [
+          {
+            "label": "A",
+            "text": "Questions, step explanations and source code"
+          },
+          {
+            "label": "B",
+            "text": "Layouts, connectivity, legal candidates and values"
+          },
+          {
+            "label": "C",
+            "text": "Actual records, replay controls and local notes"
+          }
+        ],
+        "takeaway": "Backward advantage recursion connects delayed terminal feedback to earlier actions without crossing episode boundaries."
+      },
+      "quiz": [
+        {
+          "id": "03-quiz-0",
+          "prompt": "Which probability must remain fixed in a rollout",
+          "options": [
+            "The behavior policy log probability",
+            "Every future policy probability",
+            "The terminal return probability"
+          ],
+          "correct": 0,
+          "rationale": "The behavior policy log probability",
+          "source_question": "03-rollout"
+        },
+        {
+          "id": "03-quiz-1",
+          "prompt": "What stops GAE crossing episodes",
+          "options": [
+            "The macro name string",
+            "The boundary flag",
+            "The tensor device"
+          ],
+          "correct": 1,
+          "rationale": "The boundary flag",
+          "source_question": "03-rollout"
+        },
+        {
+          "id": "03-quiz-2",
+          "prompt": "What bootstrap value is used at a true terminal",
+          "options": [
+            "The next episode initial value",
+            "The sampled action index",
+            "Zero"
+          ],
+          "correct": 2,
+          "rationale": "Zero",
+          "source_question": "03-gae"
+        },
+        {
+          "id": "03-quiz-3",
+          "prompt": "Which target trains the critic",
+          "options": [
+            "Unnormalized returns",
+            "Normalized anchor indices",
+            "The mask count only"
+          ],
+          "correct": 0,
+          "rationale": "Unnormalized returns",
+          "source_question": "03-gae"
+        }
+      ],
+      "short_answer": {
+        "prompt": "Explain the causal steps in this chapter in your own words and cite one actual lab record.",
+        "expected": "Backward advantage recursion connects delayed terminal feedback to earlier actions without crossing episode boundaries."
+      }
+    },
+    {
+      "id": "04",
+      "title": "Update and inspect the policy",
+      "question_ids": [
+        "04-loss",
+        "04-adam",
+        "04-evidence"
+      ],
+      "bridge": "Backward advantage recursion connects delayed terminal feedback to earlier actions without crossing episode boundaries.",
+      "media": {
+        "type": "iframe",
+        "src": "/steps/index.html?chapter=04",
+        "reading_guide": "Read the three steps, then inspect the corresponding actual record in the lab. Replay sliders inspect saved decisions without retraining. Chapter 01 execution buttons advance its own teaching environment.",
+        "components": [
+          {
+            "label": "A",
+            "text": "Questions, step explanations and source code"
+          },
+          {
+            "label": "B",
+            "text": "Layouts, connectivity, legal candidates and values"
+          },
+          {
+            "label": "C",
+            "text": "Actual records, replay controls and local notes"
+          }
+        ],
+        "takeaway": "Saved models and trajectories support replay and fixed-instance comparisons, including regressions and failures."
+      },
+      "quiz": [
+        {
+          "id": "04-quiz-0",
+          "prompt": "What does the PPO ratio compare",
+          "options": [
+            "New and old probabilities of the same recorded action",
+            "Probabilities of different macros",
+            "Area divided by HPWL"
+          ],
+          "correct": 0,
+          "rationale": "New and old probabilities of the same recorded action",
+          "source_question": "04-loss"
+        },
+        {
+          "id": "04-quiz-1",
+          "prompt": "When are weights changed in a minibatch",
+          "options": [
+            "During observation parsing",
+            "During optimizer.step after gradient computation",
+            "During loss printing"
+          ],
+          "correct": 1,
+          "rationale": "During optimizer.step after gradient computation",
+          "source_question": "04-adam"
+        },
+        {
+          "id": "04-quiz-2",
+          "prompt": "What does initialize-from reuse",
+          "options": [
+            "The full old optimizer and progress",
+            "The old canvas without checking",
+            "Model weights for a new experiment"
+          ],
+          "correct": 2,
+          "rationale": "Model weights for a new experiment",
+          "source_question": "04-evidence"
+        },
+        {
+          "id": "04-quiz-3",
+          "prompt": "What happened to the 20-macro greedy layout after fine-tuning",
+          "options": [
+            "Area and HPWL both worsened in the saved replay",
+            "Both necessarily improved",
+            "It was never evaluated"
+          ],
+          "correct": 0,
+          "rationale": "Area and HPWL both worsened in the saved replay",
+          "source_question": "04-evidence"
+        }
+      ],
+      "short_answer": {
+        "prompt": "Explain the causal steps in this chapter in your own words and cite one actual lab record.",
+        "expected": "Saved models and trajectories support replay and fixed-instance comparisons, including regressions and failures."
+      }
+    },
+    {
+      "id": "05",
+      "title": "Compare PPO and SA-SP consistently",
+      "question_ids": [
+        "05-reuse",
+        "05-protocol",
+        "05-results"
+      ],
+      "bridge": "Saved models and trajectories support replay and fixed-instance comparisons, including regressions and failures.",
+      "media": {
+        "type": "iframe",
+        "src": "/steps/comparison.html",
+        "reading_guide": "Read the three steps, then inspect the corresponding actual record in the lab. Replay sliders inspect saved decisions without retraining. Chapter 01 execution buttons advance its own teaching environment.",
+        "components": [
+          {
+            "label": "A",
+            "text": "Questions, step explanations and source code"
+          },
+          {
+            "label": "B",
+            "text": "Layouts, connectivity, legal candidates and values"
+          },
+          {
+            "label": "C",
+            "text": "Actual records, replay controls and local notes"
+          }
+        ],
+        "takeaway": "Use the recorded quality/runtime trade-off and exported placements to review the baseline and agree the next interface work."
+      },
+      "quiz": [
+        {
+          "id": "05-quiz-0",
+          "prompt": "Which original SA-SP function is reused",
+          "options": [
+            "The sequence-pair placement decoder",
+            "A new CUDA kernel",
+            "A C++ PPO actor"
+          ],
+          "correct": 0,
+          "rationale": "The sequence-pair placement decoder",
+          "source_question": "05-reuse"
+        },
+        {
+          "id": "05-quiz-1",
+          "prompt": "Which coordinates qualify for the shared comparison",
+          "options": [
+            "Any fractional anchor rounded later",
+            "Integer lower-left anchors",
+            "Macro center coordinates"
+          ],
+          "correct": 1,
+          "rationale": "Integer lower-left anchors",
+          "source_question": "05-protocol"
+        },
+        {
+          "id": "05-quiz-2",
+          "prompt": "What do three PPO inference seeds represent",
+          "options": [
+            "Three independent training runs",
+            "Three different objective definitions",
+            "Action randomness from one frozen trained policy"
+          ],
+          "correct": 2,
+          "rationale": "Action randomness from one frozen trained policy",
+          "source_question": "05-results"
+        },
+        {
+          "id": "05-quiz-3",
+          "prompt": "How are failed outputs handled",
+          "options": [
+            "Count in total; exclude from complete-layout quality means",
+            "Delete the trial",
+            "Assign zero cost"
+          ],
+          "correct": 0,
+          "rationale": "Count in total; exclude from complete-layout quality means",
+          "source_question": "05-results"
+        }
+      ],
+      "short_answer": {
+        "prompt": "Explain the causal steps in this chapter in your own words and cite one actual lab record.",
+        "expected": "Use the recorded quality/runtime trade-off and exported placements to review the baseline and agree the next interface work."
+      }
+    }
+  ]
+}

@@ -1,0 +1,4 @@
+python seqpair_usc.py --input blknet_20.txt --alpha (#) --beta (#)
+alpha - weight on bounding box area
+beta - weight on wirelength
+alpha + beta = 1
