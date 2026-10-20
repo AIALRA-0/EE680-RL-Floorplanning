@@ -1,0 +1,57 @@
+steps/05-comparison/README.md
+  s_7461645a2e0807::t_8640acab847dd4 7-8
+steps/learning.js
+  s_7461645a2e0807::t_8640acab847dd4 19
+docs/ppo-sa-sp-comparison.md
+  s_7461645a2e0807::t_8640acab847dd4 34,40,117
+docs/architecture.md
+  s_7461645a2e0807::t_800841d8c4befd 1-59
+docs/milestones.md
+  s_7461645a2e0807::t_800841d8c4befd 1-139
+README.md
+  s_7461645a2e0807::t_d79ee1852c67aa 30-32,45-47,49-51,60,64-65,67-72,103-104,167-169,194-196
+docs/delivery-report.md
+  s_7461645a2e0807::t_ac53eb113794f9 3-6
+docs/ppo-design.md
+  s_7461645a2e0807::t_71e586d2f4d4cd 23,57-58
+docs/ppo-first-run.md
+  s_7461645a2e0807::t_7e2689b12e05b9 203
+docs/sa-sp-first-run.md
+  s_7461645a2e0807::t_3b71d3bad23380 17,21-22,53
+docs/team-handoff.md
+  s_7461645a2e0807::t_8add7fb7c0efa0 1-42
+src/experiments/compare.py
+  s_7461645a2e0807::t_0fb8f0c10f88f1 12-13
+src/sa_sp/native.py
+  s_7461645a2e0807::t_003e1f5fc29686 53
+src/sa_sp/solver.py
+  s_7461645a2e0807::t_8e34704a558c9b 7,152
+steps/README.md
+  s_7461645a2e0807::t_3fcf8a44576bc7 19,23
+steps/comparison.js
+  s_7461645a2e0807::t_e2e476b13aeb56 39
+steps/course/book.json
+  s_7461645a2e0807::t_be50c52b30f5e7 127,1104,1108,1117,1126,1264
+steps/course/materials.json
+  s_7461645a2e0807::t_7f014c4f6c1834 96
+steps/course/questions.json
+  s_7461645a2e0807::t_6a6a9b6cdb6522 959,963,972,981,1119
+tests/python/test_comparison.py
+  s_7461645a2e0807::t_8ac764cb5d8462 8-9
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "d9a8012ee121bd9f0790ff5db3dee24ac28f1515",
+  "prompts": {},
+  "sessions": {
+    "s_7461645a2e0807": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a12423-9fcf-78d3-9a03-6ead7e0cd18d",
+        "model": "gpt-6.1-sol"
+      },
+      "human_author": "AIALRA-0 <aialra@163.com>"
+    }
+  }
+}
