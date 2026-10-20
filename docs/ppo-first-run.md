@@ -200,7 +200,7 @@ C15 has a reproducible first experiment and a checkpoint producing legal layouts
 on the two supplied small inputs. Teammate review and shared-checklist acceptance
 have not been recorded by these local runs. Subsequent work completed
 [larger-circuit fine-tuning](ppo-scaled-training.md) and the first
-[aligned SA-SP comparison](ppo-sa-sp-comparison.md). C++ scoring parity, formal
+[aligned SA-SP comparison](ppo-sa-sp-comparison.md). Python baseline/scoring review, formal
 wildcard experiments and ECE-server reproduction remain separate milestones.
 The [team handoff](team-handoff.md) identifies review items eligible for closure;
 this repository does not automatically update the shared checklist.

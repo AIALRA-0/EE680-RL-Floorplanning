@@ -93,7 +93,7 @@
     },
     {
       "id": "source-05-reuse",
-      "path": "cpp/sa_sp/adapter.py",
+      "path": "src/sa_sp/native.py",
       "symbol": "run_original",
       "start": 39,
       "end": 53

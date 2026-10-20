@@ -36,6 +36,6 @@
   get('theme').value=new URL(location.href).searchParams.get('theme')||'auto';get('theme').onchange=()=>document.documentElement.dataset.theme=get('theme').value;get('theme').onchange();
   Promise.all([fetchJSON('comparison-ui.json'),fetchJSON('/api/comparison')]).then(([labels,result])=>{ui=labels;data=result;document.querySelectorAll('[data-label]').forEach(n=>n.textContent=ui[n.dataset.label]);get('comparison-status').textContent=ui[data.status]||data.status;
     get('comparison-case').replaceChildren(...data.cases.map((c,i)=>{const o=el('option',c.macros);o.value=i;return o;}));choose();
-    for(const [id,path] of [['protocol-code','integration/evaluation/protocol.py'],['sa-code','cpp/sa_sp/aligned.py']])fetch('/'+path).then(r=>r.text()).then(text=>get(id).textContent=text);
+    for(const [id,path] of [['protocol-code','integration/evaluation/protocol.py'],['sa-code','src/sa_sp/solver.py']])fetch('/'+path).then(r=>r.text()).then(text=>get(id).textContent=text);
   }).catch(error=>get('comparison-error').textContent=error.message);
 })();

@@ -20,7 +20,7 @@ The existing `Circuit` has ordered string IDs mapped to `(width, height)` and a 
 
 Action `i = y * W + x` proposes an integer lower-left anchor. `PlacementEnv` checks the complete rectangle, permits touching edges and rejects positive-area overlap. The faster full mask marks the exact integer intervals excluded by the same inequalities; scalar `inspect_action` remains available for detailed teaching and parity tests.
 
-Area is the tight occupied bounding-box area. HPWL sums each net's horizontal and vertical spans using lower-left endpoints. Successful terminal reward is `-alpha * Area/(W*H) - (1-alpha) * HPWL/max(1, M*(W+H))`. Intermediate reward is zero; an episode with no legal continuation ends at -2. Default alpha is 0.5; configurable alpha supports weight ablations. These Python contracts await joint C++ parity review. The received native SA-SP permits rotation and uses origin-anchored bounds. The separate aligned adapter disables rotation and applies the shared canvas and objective; see the [comparison report](ppo-sa-sp-comparison.md).
+Area is the tight occupied bounding-box area. HPWL sums each net's horizontal and vertical spans using lower-left endpoints. Successful terminal reward is `-alpha * Area/(W*H) - (1-alpha) * HPWL/max(1, M*(W+H))`. Intermediate reward is zero; an episode with no legal continuation ends at -2. Default alpha is 0.5; configurable alpha supports weight ablations. These Python contracts await Alarik and Lucas's joint review and additional hand-verified scoring fixtures. The received native SA-SP permits rotation and uses origin-anchored bounds. The separate aligned adapter disables rotation and applies the shared canvas and objective; see the [comparison report](ppo-sa-sp-comparison.md).
 
 ## How does the model see dimensions, positions and nets
 
@@ -54,7 +54,8 @@ checkpoint provenance and results.
 
 Train on the two existing 5/10-macro inputs, retain initial evaluation, every update's training statistics, fixed-seed sampled evaluation, deterministic replay and checkpoint. Count failed episodes in completion rates; report conditional Area/HPWL only for complete legal results. Training wall time includes training-time evaluation and saves; per-layout inference time excludes model loading and disk output but includes trace construction when enabled. Fixed-instance training is the first experiment; wildcard evaluation and additional seeds are separate experiments.
 
-Write new runtime evidence and models to ignored `steps/build/`. Selected actual records are published under `steps/evidence/` for fresh-clone replay. Keep reusable implementation in Lucas's `src/` and shared `integration/`; keep numbered explanations and entry points in `steps/`. The question-led reader embeds and preserves the 00/01 walkthrough and detailed 02-04 PPO visualizations.
+Write new runtime evidence and models to ignored `steps/build/`. Selected actual records are published under `steps/evidence/` for fresh-clone replay. Keep PPO implementation in `src/environment/` and `src/ppo/`, the Python
+SA-SP baseline in `src/sa_sp/`, and shared scoring in `integration/evaluation/`; keep numbered explanations and entry points in `steps/`. The question-led reader embeds and preserves the 00/01 walkthrough and detailed 02-04 PPO visualizations.
 
 ## Which sources define the algorithm
 

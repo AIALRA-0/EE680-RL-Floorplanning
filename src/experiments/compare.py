@@ -9,8 +9,8 @@ import statistics
 import time
 import torch
 
-from cpp.sa_sp.adapter import run_original
-from cpp.sa_sp.aligned import run_aligned
+from src.sa_sp.native import run_original
+from src.sa_sp.solver import run_aligned
 from integration.evaluation.protocol import comparison_protocol, score_layout
 from src.data.parse_blknet import load_circuit
 from src.experiments.evaluate import run_episode, write_json

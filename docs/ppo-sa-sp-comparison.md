@@ -31,13 +31,13 @@ randomness from each frozen checkpoint, not three independent training replicate
 
 ## How was the original SA-SP reused
 
-The received `cpp/sa_sp/seqpair_usc.py` stays unchanged. `adapter.py` exports actual
+The received `src/sa_sp/seqpair_usc.py` stays unchanged. `native.py` exports actual
 returned coordinates/dimensions and independently checks its metrics. The unchanged
 5-macro seed-0 smoke run reproduces **Area 880, HPWL 84, 36000 moves**. Original
 result images remain under `docs/sa-sp-results/alarik/`. Native rotation, unrestricted
 canvas and initial-layout cost normalization differ from this comparison.
 
-`aligned.py` is a separate Python adaptation reusing the original sequence-pair
+`solver.py` is a separate Python adaptation reusing the original sequence-pair
 decoder and HPWL calculation. It disables rotation, uses a height-sorted first-fit
 shelf initialization, proposes a swap in either sequence, rejects out-of-board
 candidates and uses the shared normalized cost. Temperature probing uses the same
@@ -114,5 +114,5 @@ a new output directory to preserve the immutable existing plan.
 
 Review the shared protocol and adapted SA choices before treating them as settled
 interfaces. Formal course benchmarks, unseen-circuit generalization, multiple
-training seeds, ECE Linux reproduction, C++ scoring parity and optional CUDA remain
+training seeds, ECE Linux reproduction, Python baseline/scoring review and optional CUDA remain
 separate tasks. See [the concrete handoff](team-handoff.md).

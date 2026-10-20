@@ -4,7 +4,7 @@ import math
 import random
 import time
 
-from cpp.sa_sp.adapter import export_positions, load_original
+from src.sa_sp.native import export_positions, load_original
 from integration.evaluation.protocol import normalized_cost, score_layout
 
 
@@ -149,4 +149,4 @@ def export_result(context, history, seed, stages):
                          "moves_per_temperature": context["moves_per_temperature"],
                          "initial_temperature": context["temperature"], **context["probe"]},
             "history": history, "trace": context["trace"],
-            "source": "cpp/sa_sp/seqpair_usc.py: sp_to_placement and compute_hpwl"}
+            "source": "src/sa_sp/seqpair_usc.py: sp_to_placement and compute_hpwl"}

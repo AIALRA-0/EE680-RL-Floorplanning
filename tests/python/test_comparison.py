@@ -5,8 +5,8 @@ from pathlib import Path
 import random
 import unittest
 
-from cpp.sa_sp.adapter import export_positions, load_original, run_original
-from cpp.sa_sp.aligned import accept_proposal, decode, run_aligned, shelf_sequences
+from src.sa_sp.native import export_positions, load_original, run_original
+from src.sa_sp.solver import accept_proposal, decode, run_aligned, shelf_sequences
 from integration.evaluation.protocol import comparison_protocol, score_layout
 from src.data.parse_blknet import load_circuit
 
