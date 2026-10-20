@@ -14,11 +14,12 @@ It does not contain a C++ implementation.
 
 | Received files | Repository location |
 |---|---|
-| `ADRun/seqpair_usc.py` and `ADRun/HowToRun.txt` | `cpp/sa_sp/` |
+| `ADRun/seqpair_usc.py` and `ADRun/HowToRun.txt` | `src/sa_sp/` |
 | `ADRun/blknet_5.txt`, `blknet_10.txt`, `blknet_20.txt`, `blknet_50.txt`, `blknet_100.txt` | `benchmarks/alarik-synthetic/` |
 | All 18 `ADRun/Blk*Floor.png` and `ADRun/Blk*Results.png` images | `docs/sa-sp-results/alarik/` |
 
-`cpp/sa_sp/` is the agreed SA-SP integration location; the received script keeps
+`src/sa_sp/` is the current Python baseline location (moved from `cpp/sa_sp/`).
+The received script keeps
 its original filename and Python implementation. Alarik's existing images are
 received artifacts, separate from the new local smoke run described below.
 The input headers identify the circuits as auto-generated designs. They are
@@ -49,7 +50,7 @@ script; use the repository paths below after this import.
 
 ```powershell
 # Run the received script on the five-block input and keep its new image outside Git.
-python cpp/sa_sp/seqpair_usc.py --input benchmarks/alarik-synthetic/blknet_5.txt --alpha 0.5 --beta 0.5 --seed 0 --output "$env:TEMP/ee680-sa-sp-smoke5.png"
+python src/sa_sp/seqpair_usc.py --input benchmarks/alarik-synthetic/blknet_5.txt --alpha 0.5 --beta 0.5 --seed 0 --output "$env:TEMP/ee680-sa-sp-smoke5.png"
 ```
 
 On October 15, 2026, the unchanged script was run locally with Python 3.12.7,

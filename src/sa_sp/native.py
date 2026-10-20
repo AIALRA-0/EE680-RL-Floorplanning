@@ -50,4 +50,4 @@ def run_original(circuit, seed=0, alpha=0.5):
     return {"algorithm": "sa_sp_original", "seed": seed, "initial": initial, "final": final,
             "runtime_seconds": result[22], "moves": result[23], "accepted": result[24],
             "rotation": True, "normalization": "initial native Area and HPWL",
-            "source": "cpp/sa_sp/seqpair_usc.py"}
+            "source": "src/sa_sp/seqpair_usc.py"}

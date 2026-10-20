@@ -16,8 +16,8 @@ Open `/steps/reading.html` for the question-led course. Each question connects a
 | [02-policy](02-policy/README.md) | How do geometry and connectivity become a masked policy? | `src/ppo/encoding.py`, `model.py` |
 | [03-rollout](03-rollout/README.md) | How do actual interactions become fixed training targets? | `src/ppo/algorithm.py` |
 | [04-ppo-update](04-ppo-update/README.md) | How do GAE, PPO losses and Adam change parameters? | `src/ppo/algorithm.py`, `src/experiments/` |
-| 05-comparison | How can frozen PPO and SA-SP share one evaluation contract? | `cpp/sa_sp/`, `integration/evaluation/` |
+| 05-comparison | How can frozen PPO and SA-SP share one evaluation contract? | `src/sa_sp/`, `integration/evaluation/` |
 
 The lab retains detailed candidate checks, masks, network inputs, probabilities, before/after layouts, checkpoint selection, training curves and failure traces. Browser notes and the actual chapter-01 teaching session persist independently. Published English course material and curated evidence are tracked; local Chinese reading material and personal notes remain local.
 
-Lucas owns Python/PPO, Alarik owns the baseline and planned C++ work, and shared integration connects their results. Read [the learning workflow](../docs/learning-workflow.md), [PPO design](../docs/ppo-design.md), [small-circuit results](../docs/ppo-first-run.md) and [scaled results](../docs/ppo-scaled-training.md).
+Lucas owns PPO; Alarik owns the Python SA-SP baseline, scoring verification and baseline experiments. Shared Python integration connects their results. See the [current milestones](../docs/milestones.md). Read [the learning workflow](../docs/learning-workflow.md), [PPO design](../docs/ppo-design.md), [small-circuit results](../docs/ppo-first-run.md) and [scaled results](../docs/ppo-scaled-training.md).

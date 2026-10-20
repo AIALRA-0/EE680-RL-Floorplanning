@@ -4,8 +4,8 @@ Read chapter 05 in `/steps/reading.html` after starting `python steps/serve.py`.
 Its embedded `/steps/comparison.html` reads actual independent validation, trial
 coordinates and measured timings. It does not launch training or search.
 
-The original `cpp/sa_sp/seqpair_usc.py` stays unchanged. `adapter.py` exports its
-returned coordinates; `aligned.py` reuses its decoder with no rotation, a hard
+The original `src/sa_sp/seqpair_usc.py` stays unchanged. `native.py` exports its
+returned coordinates; `solver.py` reuses its decoder with no rotation, a hard
 canvas and the same normalized objective as PPO. The original smoke run and the
 adapted comparison are labeled separately.
 

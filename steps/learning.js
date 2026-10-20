@@ -16,7 +16,7 @@
     reward: "Explain this step's actual reward", next_observation: "Return the next observation", done: "Episode finished"};
   const pending = {
     '05': ["How can PPO and SA-SP use one evaluation protocol", [
-      "Lucas owns the Python environment and PPO; Alarik owns SA-SP, C++ geometry and optional CUDA. Shared integration keeps their implementations in the agreed directories.",
+      "Lucas owns the environment and PPO; Alarik owns Python SA-SP, scoring verification, baseline experiments and CPU profiling. Shared Python evaluation connects their exported layouts.",
       "Both solvers need the same rotation policy, lower-left endpoints, canvas constraints and Area/HPWL definitions. The comparison adapter disables rotation and uses the PPO canvas.",
       "Chapters 02-04 retain actual PPO training and replay. Chapter 05 uses independently scored exports from the frozen PPO model and the adapted SA-SP baseline."]]
   };

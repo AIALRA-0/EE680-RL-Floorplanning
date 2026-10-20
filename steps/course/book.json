@@ -124,7 +124,7 @@
     },
     {
       "id": "source-05-reuse",
-      "path": "cpp/sa_sp/adapter.py",
+      "path": "src/sa_sp/native.py",
       "symbol": "run_original",
       "start": 39,
       "end": 53
@@ -1101,11 +1101,11 @@
         {
           "id": "05-reuse-p1",
           "title": "Retain the received implementation",
-          "statement": "seqpair_usc.py remains the supplied Python implementation under cpp/sa_sp, preserving Alarik attribution and original instructions. Its sequence-pair decoder, bounding-box calculations and lower-left HPWL functions are reused rather than reimplemented in C++.",
+          "statement": "seqpair_usc.py remains the supplied Python implementation under src/sa_sp, preserving Alarik attribution and original instructions. Its sequence-pair decoder, bounding-box calculations and lower-left HPWL functions are reused rather than reimplemented in C++.",
           "source_ids": [
             "source-05-reuse"
           ],
-          "grounding": "cpp/sa_sp/adapter.py:39 (run_original)"
+          "grounding": "src/sa_sp/native.py:39 (run_original)"
         },
         {
           "id": "05-reuse-p2",
@@ -1114,7 +1114,7 @@
           "source_ids": [
             "source-05-reuse"
           ],
-          "grounding": "cpp/sa_sp/adapter.py:39 (run_original)"
+          "grounding": "src/sa_sp/native.py:39 (run_original)"
         },
         {
           "id": "05-reuse-p3",
@@ -1123,7 +1123,7 @@
           "source_ids": [
             "source-05-reuse"
           ],
-          "grounding": "cpp/sa_sp/adapter.py:39 (run_original)"
+          "grounding": "src/sa_sp/native.py:39 (run_original)"
         }
       ],
       "result": {
@@ -1261,7 +1261,7 @@
         {
           "id": "05-results-p3",
           "title": "Inspect the trace and prepare the review",
-          "statement": "The embedded comparison shows actual same-scale layouts, per-net scores, PPO steps, SA candidate acceptance and best-cost history. SA retains the first 24 proposals, each new best and the final proposal; gaps are explicit. Akira should review decoder/export and the shared protocol, then implement C++ scoring parity against these fixtures.",
+          "statement": "The embedded comparison shows actual same-scale layouts, per-net scores, PPO steps, SA candidate acceptance and best-cost history. SA retains the first 24 proposals, each new best and the final proposal; gaps are explicit. Alarik owns the Python SA-SP baseline: independently check the decoder and exported scores, add reproducible batch experiments and budget ablations, validate held-out circuits and profile CPU hotspots. The milestones document defines the deliverables; a C++ rewrite is not a prerequisite.",
           "source_ids": [
             "source-05-results"
           ],

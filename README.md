@@ -27,8 +27,9 @@ validated layouts; separate fine-tuning runs cover 20/50/100 macros. See the
 [PPO design](docs/ppo-design.md), [first-run results](docs/ppo-first-run.md) and
 [larger-input results](docs/ppo-scaled-training.md),
 [shared-protocol PPO/SA-SP comparison](docs/ppo-sa-sp-comparison.md) and
-[team handoff](docs/team-handoff.md). **Shared C++ scoring, optional CUDA,
-ECE-server reproduction and formal unseen-circuit evaluation remain pending.**
+[team handoff](docs/team-handoff.md). **Python baseline review, ECE-server
+reproduction and formal unseen-circuit evaluation remain pending.** See the [current architecture](docs/architecture.md)
+and [milestones with acceptance criteria](docs/milestones.md).
 
 ## 2 Current repository layout
 
@@ -41,17 +42,13 @@ Table 2.1. Module ownership and intended responsibilities
 | `src/data/` | Lucas | Circuit parsing and data representations |
 | `src/environment/` | Lucas | Reinforcement learning placement environment |
 | `src/ppo/` | Lucas | PPO networks and training |
-| `src/experiments/` | Lucas | Training experiments and analysis |
-| `cpp/geometry/` | Alarik | Placement legality, Area, and HPWL calculations |
-| `cpp/sa_sp/` | Alarik | SA-SP baseline integration; received script is Python |
-| `cpp/cuda/` | Alarik | Optional CUDA acceleration |
-| `integration/bindings/` | Both | Python/C++ interoperability |
-| `integration/evaluation/` | Both | Unified benchmark evaluation and comparison |
+| `src/experiments/` | Both | PPO training and shared comparison orchestration |
+| `src/sa_sp/` | Alarik | Python sequence-pair baseline, native export, shared-protocol search and baseline experiments |
+| `integration/evaluation/` | Alarik leads; Lucas reviews | Independent Python legality, Area, HPWL and comparison contract |
 | `integration/visualization/` | Both | Floorplan visualization and comparison |
-| `benchmarks/` | Both | Shared inputs; current samples are Alarik's synthetic circuits |
-| `tests/fixtures/` | Both | Manually verified test circuits |
-| `tests/python/` | Lucas | Python unit tests |
-| `tests/cpp/` | Alarik | C++ unit tests |
+| `benchmarks/` | Alarik leads; both approve | Input provenance, held-out inventory; current inputs are Alarik's synthetic circuits |
+| `tests/fixtures/` | Alarik leads; Lucas reviews | Manually verified test circuits |
+| `tests/python/` | Module owner | Python tests for PPO, SA-SP and independent scoring |
 | `tests/integration/` | Both | Cross-module and end-to-end tests |
 | `docs/` | Both | Interface specifications and technical documentation |
 | `steps/` | Both | Numbered learning steps and the maintained HTML learning page; shared code stays in its ownership directories |
@@ -60,17 +57,19 @@ Table 2.1. Module ownership and intended responsibilities
 
 `README.md` is the project entry point; the existing `.gitignore` is preserved.
 The parser is in `src/data/parse_blknet.py`, with tests in `tests/python/`.
-Alarik's script and original instructions are in `cpp/sa_sp/`, his five synthetic
+Alarik's script and original instructions are in `src/sa_sp/`, his five synthetic
 inputs are in `benchmarks/alarik-synthetic/`, and his 18 received images are in
 `docs/sa-sp-results/alarik/`. See the [import and first-run notes](docs/sa-sp-first-run.md)
 for provenance, commands, observed results, and remaining baseline checks.
-Empty directories retain `.gitkeep`; CUDA remains optional.
+Empty fixture directories retain `.gitkeep`. Unused C++/CUDA/binding/test scaffolds
+have been removed; acceleration can be reconsidered after CPU profiling.
 
-Agree on shared interfaces in `docs/` before adding implementation files. Connect
-the independently developed Python and C++ modules through
-`integration/bindings/`, with shared evaluation, visualization, and integration
-tests. The Team Hub's proposed architecture guides future work; add files only
-when actual work requires them and the relevant interfaces have been reviewed.
+Both algorithms are Python modules. They share the parsed circuit and exported
+placement format, then use independent scoring in `integration/evaluation/`.
+`src/sa_sp/native.py` wraps the unchanged received script;
+`src/sa_sp/solver.py` implements the separately adapted comparison search.
+Shared experiment orchestration stays in `src/experiments/`; neither solver
+imports the other solver. Review interface changes together before implementation.
 
 ### 2.1 Run the circuit parser
 
@@ -101,7 +100,8 @@ and [04: PPO updates](steps/04-ppo-update/README.md), followed by
 [05: PPO/SA-SP comparison](steps/05-comparison/README.md). The
 [step guide](steps/README.md) connects each explanation to actual code and saved
 records. Lucas keeps the environment and PPO
-in `src/`; Alarik keeps baseline and C++ work in `cpp/`; shared preview code is in
+in `src/environment/` and `src/ppo/`; Alarik keeps the Python baseline in
+`src/sa_sp/`; shared preview code is in
 `integration/visualization/`.
 
 ```powershell
@@ -164,7 +164,9 @@ require team access. The Projects listing is a navigation entry, not a verified
 link to a specific board.
 
 - **Lucas:** Python/PyTorch, PPO environment, reward design, training, and analysis.
-- **Alarik:** C++ geometry, SA-SP integration, CPU profiling, and optional CUDA.
+- **Alarik:** Python SA-SP ownership, independent scoring tests, reproducible
+  baseline experiments, held-out input validation, CPU profiling and ECE baseline
+  reproduction. See [assigned deliverables](docs/milestones.md).
 - **Both:** shared interfaces, scoring correctness, benchmark validation,
   visualization, and final submission.
 
@@ -189,8 +191,9 @@ finite parameter updates, checkpoint continuation, independent Python scoring,
 learning-page interactions, course references, compressed evidence, SA-SP export,
 common objective and acceptance rules, Git diff and README links. The original
 five-block SA-SP smoke run and adapted shared-protocol comparison retain separate
-provenance. C++ parity, optional CUDA, formal benchmarks and ECE Linux checks
-remain pending. Actual commands and results are recorded in the delivery report.
+provenance. Python scoring review, formal benchmarks and ECE Linux checks
+remain pending. C++ and CUDA are optional performance decisions after profiling.
+Actual commands and results are recorded in the delivery report.
 
 The README follows [github-readme-standardizer v1.0.0](https://github.com/AIALRA-0/github-readme-standardizer/releases/tag/v1.0.0)
 with the explicit **English-only** requirement. Its unmodified strict auditor

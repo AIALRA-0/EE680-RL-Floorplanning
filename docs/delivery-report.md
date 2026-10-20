@@ -1,5 +1,9 @@
 # What is included in this repository delivery
 
+This is the historical PR #4 delivery report. Its file tree, commands and pending
+work describe that release. For the current Python SA-SP paths and revised
+assignments, read [architecture](architecture.md) and [milestones](milestones.md).
+
 Delivery date: 2026-10-20. Branch: `feat/ppo-training-loop`, based on existing
 `main` commit `ba270fb11a5aad30ea210d22e9d3ea6722ac2e2a`. The repository remains
 private. Existing commits, the original `.gitignore` and the received SA-SP files
